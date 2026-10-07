@@ -8,7 +8,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: #0f172a;
+            background: #0a101d;
             color: #f8fafc;
             overflow: hidden;
             height: 100vh;
@@ -19,7 +19,7 @@
         /* Top Navigation Bar */
         .top-bar {
             height: 52px;
-            background: rgba(30, 41, 59, 0.8);
+            background: rgba(19, 28, 49, 0.85);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             display: flex;
@@ -64,25 +64,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 20px;
         }
         .slide {
             display: none;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             height: 100%;
-            max-height: 720px;
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 36px 44px;
+            max-height: 740px;
+            background: rgba(19, 28, 49, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 30px 40px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(12px);
             flex-direction: column;
             overflow-y: auto;
         }
-        .slide.active { display: flex; animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .slide.active { display: flex; animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Slide Typography */
         .slide-category {
@@ -91,651 +91,566 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #38bdf8;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         .slide-title {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
             color: #f8fafc;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 12px;
+            padding-bottom: 10px;
         }
         .slide-title span { color: #38bdf8; }
 
         /* Card Grids */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex-grow: 1; }
-        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; flex-grow: 1; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; flex-grow: 1; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; flex-grow: 1; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; flex-grow: 1; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; flex-grow: 1; }
 
         .card {
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(10, 16, 29, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
         }
-        .card-cyan { border-top: 4px solid #38bdf8; }
-        .card-green { border-top: 4px solid #10b981; }
-        .card-amber { border-top: 4px solid #f59e0b; }
-        .card-purple { border-top: 4px solid #a855f7; }
-        .card-red { border-top: 4px solid #ef4444; }
+        .card-cyan { border-top: 3.5px solid #38bdf8; }
+        .card-green { border-top: 3.5px solid #10b981; }
+        .card-amber { border-top: 3.5px solid #f59e0b; }
+        .card-purple { border-top: 3.5px solid #a855f7; }
+        .card-red { border-top: 3.5px solid #ef4444; }
 
-        .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+        .card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
         .card-cyan h3 { color: #38bdf8; }
         .card-green h3 { color: #10b981; }
         .card-amber h3 { color: #f59e0b; }
         .card-purple h3 { color: #a855f7; }
         .card-red h3 { color: #ef4444; }
 
-        .card ul { padding-left: 18px; font-size: 13px; line-height: 1.6; color: #cbd5e1; }
-        .card li { margin-bottom: 8px; }
+        .card ul { padding-left: 16px; font-size: 12px; line-height: 1.5; color: #cbd5e1; }
+        .card li { margin-bottom: 5px; }
+
+        /* Image Containers */
+        .img-frame {
+            background: #0a101d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .img-frame-header {
+            padding: 6px 10px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #38bdf8;
+            background: rgba(19, 28, 49, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .img-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
 
         /* Tables */
-        table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 8px; }
-        th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-        th { background: rgba(15, 23, 42, 0.8); color: #38bdf8; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
-        tr:hover td { background: rgba(255, 255, 255, 0.02); }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 4px; }
+        th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+        th { background: rgba(10, 16, 29, 0.9); color: #38bdf8; font-weight: 700; text-transform: uppercase; font-size: 10.5px; }
 
-        /* Speaker Notes Drawer */
+        /* Speaker notes drawer */
         .notes-drawer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #020617;
-            border-top: 2px solid #38bdf8;
-            padding: 16px 28px;
-            font-size: 13px;
-            line-height: 1.6;
+            margin-top: 14px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 11.5px;
             color: #94a3b8;
-            max-height: 160px;
-            overflow-y: auto;
-            display: none;
-            z-index: 200;
-            box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.5);
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
         }
-        .notes-drawer.open { display: block; }
-        .notes-title { font-weight: 700; color: #38bdf8; margin-bottom: 4px; font-size: 11px; text-transform: uppercase; }
-
-        /* Media in slides */
-        .slide-img { max-width: 100%; max-height: 380px; object-fit: contain; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); }
-
-        @media print {
-            body { overflow: visible; height: auto; background: #0f172a; }
-            .top-bar, .notes-drawer { display: none !important; }
-            .slide-stage { padding: 0; display: block; }
-            .slide { display: flex !important; page-break-after: always; max-height: none; height: 100vh; margin-bottom: 0; border: none; border-radius: 0; }
-            @page { size: landscape; margin: 0; }
-        }
+        .notes-drawer strong { color: #f8fafc; font-style: normal; }
     </style>
 </head>
 <body>
 
-    <!-- TOP CONTROLS -->
     <div class="top-bar">
         <div class="brand">
-            🧬 VitalSync AI <span>| Pitch Deck (IBM SkillsBuild Masterclass 5)</span>
+            🧬 VitalSync AI <span>| Pitch Deck (10 Master Slides)</span>
         </div>
         <div class="controls">
-            <button class="btn-ctrl" onclick="toggleNotes()">🎤 Speaker Notes (S)</button>
-            <button class="btn-ctrl" onclick="prevSlide()">◀ Prev</button>
-            <span class="slide-counter" id="slideNum">1 / 12</span>
+            <button class="btn-ctrl" onclick="prevSlide()">◀ Previous</button>
+            <div class="slide-counter" id="counter">1 / 10</div>
             <button class="btn-ctrl" onclick="nextSlide()">Next ▶</button>
-            <button class="btn-ctrl" onclick="window.print()">🖨️ Print / Save PDF</button>
+            <button class="btn-ctrl" onclick="toggleFullscreen()">⛶ Fullscreen</button>
         </div>
     </div>
 
-    <!-- MAIN SLIDE CONTAINER -->
     <div class="slide-stage">
 
         <!-- SLIDE 1 -->
-        <div class="slide active" data-notes="Good morning/afternoon everyone. My name is Mohammed Salman Hussain, and I am excited to present VitalSync AI, built under the IBM SkillsBuild Masterclass 5 curriculum in direct alignment with UN Sustainable Development Goal 3. VitalSync AI is an offline, local-first preventive health platform that eliminates health anxiety by combining peer-reviewed biophysics, machine learning calibrated on over 500,000 CDC records, and local GPU LLM synthesis with zero cloud telemetry.">
-            <div class="slide-category">IBM SkillsBuild Masterclass 5 • UN SDG 3 (Target 3.4)</div>
-            <div class="slide-title" style="font-size: 38px; border: none; margin-bottom: 12px;">VitalSync AI</div>
-            <p style="font-size: 18px; color: #38bdf8; margin-bottom: 30px; font-weight: 500;">A Homogeneous, Scientifically Grounded, Local-First Health & Circadian Intelligence Engine</p>
-            
+        <div class="slide active" id="slide-1">
+            <div class="slide-category">IBM SKILLSBUILD MASTERCLASS 5 • UN SDG 3 (TARGET 3.4)</div>
+            <h1 class="slide-title">VitalSync <span>AI</span></h1>
+            <p style="font-size: 16px; color: #38bdf8; margin-top: -12px; margin-bottom: 20px; font-weight: 600;">
+                A Homogeneous, Scientifically Grounded, Local-First Health & Circadian Intelligence Engine
+            </p>
             <div class="grid-4">
                 <div class="card card-cyan">
                     <h3>100% Local GPU</h3>
                     <ul>
                         <li>Runs on user's own GPU via Ollama</li>
                         <li>Zero cloud network calls</li>
-                        <li>Complete HIPAA/GDPR privacy</li>
-                        <li>$0 recurring API bills</li>
+                        <li>Complete HIPAA & GDPR privacy</li>
+                        <li>$0 marginal API query fees</li>
                     </ul>
                 </div>
                 <div class="card card-green">
                     <h3>5 ML Ensembles</h3>
                     <ul>
                         <li>Trained on 500k+ CDC records</li>
-                        <li>10-Yr Cardio Risk (AUC: 0.817)</li>
-                        <li>Pre-Diabetes Screener (AUC: 0.819)</li>
-                        <li>Sleep Debt & Screen Latency</li>
+                        <li>Cardio Risk (ROC-AUC: 0.817)</li>
+                        <li>Pre-Diabetes (ROC-AUC: 0.819)</li>
+                        <li>Circadian Sleep Debt & Latency</li>
                     </ul>
                 </div>
                 <div class="card card-amber">
                     <h3>Zero Hallucination</h3>
                     <ul>
                         <li>Mifflin-St Jeor & Katch BMR math</li>
-                        <li>Caffeine 5.5h pharmacokinetics</li>
+                        <li>Caffeine 5.5h half-life decay curve</li>
                         <li>Glycogen-water mass balance</li>
-                        <li>24/24 tests passing in pytest</li>
+                        <li>24 unit tests passing in pytest</li>
                     </ul>
                 </div>
                 <div class="card card-purple">
-                    <h3>Clinical Triage</h3>
+                    <h3>Clinical Safety</h3>
                     <ul>
-                        <li>Deterministic 3-tier safety guardrail</li>
+                        <li>Deterministic 3-tier triage engine</li>
                         <li>AHA/ACC blood pressure staging</li>
-                        <li>Red-Flag Emergency Override</li>
-                        <li>1-Page Doctor Visit Briefing</li>
+                        <li>Level 3 Red Emergency UI override</li>
+                        <li>1-Page Doctor Briefing export</li>
                     </ul>
                 </div>
             </div>
-
-            <div style="margin-top: 24px; font-size: 13px; color: #94a3b8; display: flex; justify-content: space-between;">
-                <div><strong>Lead Innovator:</strong> Mohammed Salman Hussain (salmanhussain1199@gmail.com)</div>
-                <div><strong>Repository:</strong> github.com/Mohammed-Salman-Hussain/VitalSync-AI</div>
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "Good morning/afternoon, everyone. My name is Mohammed Salman Hussain, presenting VitalSync AI under IBM SkillsBuild Masterclass 5 in direct alignment with UN SDG 3 (Target 3.4). VitalSync AI is an offline, local-first preventive health platform that eliminates health anxiety by combining peer-reviewed biophysics, 5 ML models trained on 500,000+ CDC records, and local GPU LLM synthesis with zero cloud telemetry."</div>
             </div>
         </div>
 
         <!-- SLIDE 2 -->
-        <div class="slide" data-notes="We have all experienced this: it is 1:00 AM, you feel an eyelid twitch after late-night coffee, you type it into Google, and within five minutes you are convinced you have motor neuron disease. That is the cyberchondria trap. Commercial search engines monetize fear. Meanwhile, late-night bedtime doomscrolling ruins sleep architecture, and commercial apps monetize private biometrics. We need a private, grounded solution.">
-            <div class="slide-category">Problem Formulation</div>
-            <div class="slide-title">The Problem: <span>The Cyberchondria Epidemic & Digital Fatigue</span></div>
+        <div class="slide" id="slide-2">
+            <div class="slide-category">THE URGENT PROBLEM • UN SDG 3 CONTEXT</div>
+            <h1 class="slide-title">The Cyberchondria Epidemic <span>& Modern Digital Burnout</span></h1>
             <div class="grid-3">
                 <div class="card card-amber">
-                    <h3>1. The Cyberchondria Loop</h3>
+                    <h3>1. The Cyberchondria Panic Loop</h3>
                     <ul>
-                        <li>Millions search benign bodily signals: eyelid twitches, post-coffee palpitations, 1.5kg scale jumps.</li>
-                        <li>Commercial search engines rank worst-case pathologies (ALS, heart failure, renal collapse) to drive advertising clicks.</li>
-                        <li>Induces acute health anxiety, elevating baseline cortisol and blood pressure.</li>
-                        <li>Drives unnecessary emergency room and clinic visits.</li>
+                        <li>Millions search common bodily signals: eyelid twitches, post-coffee heart palpitations, or 1.5kg scale jumps.</li>
+                        <li>Ad-driven search engines rank catastrophic worst-case diagnoses (ALS, cardiac failure) to drive page views.</li>
+                        <li>Triggers acute health anxiety, spikes cortisol and blood pressure, causing more physical tremors.</li>
+                        <li>Overwhelms primary care clinics and ERs with non-emergency visits.</li>
                     </ul>
                 </div>
                 <div class="card card-cyan">
-                    <h3>2. Bedtime Screen Fatigue</h3>
+                    <h3>2. Bedtime Screen Fatigue & Sleep Debt</h3>
                     <ul>
-                        <li>Workers & students spend 7-10 hours on screens plus 45-90 min doomscrolling in bed.</li>
-                        <li>Blue light suppresses melatonin synthesis; afternoon caffeine remains active (5.5h half-life).</li>
-                        <li>Leads to 40+ min sleep latency, chronic sleep debt, and cognitive exhaustion.</li>
-                        <li>Accelerates digital burnout and metabolic dysfunction.</li>
+                        <li>Average worker spends 7-10 hours on screens plus 45-90 minutes doomscrolling in bed.</li>
+                        <li>Short-wavelength blue light suppresses pineal melatonin production.</li>
+                        <li>Late afternoon caffeine remains biologically active due to 5.5h half-life ($t_{1/2}=5.5\text{h}$).</li>
+                        <li>Causes 30-60 min sleep latency, chronic sleep debt, and metabolic decline.</li>
                     </ul>
                 </div>
-                <div class="card card-purple">
-                    <h3>3. Cloud Surveillance & Lies</h3>
+                <div class="card card-red">
+                    <h3>3. Cloud Surveillance & AI Hallucinations</h3>
                     <ul>
-                        <li>Commercial fitness apps upload private biometrics to cloud data brokers.</li>
-                        <li>Users hesitate to log real health conditions due to privacy risks.</li>
-                        <li>Cloud chatbots hallucinate ungrounded metabolic numbers and contradictory diets.</li>
-                        <li>Zero clinical triage or safety boundaries.</li>
+                        <li>Commercial trackers upload sensitive biometrics to third-party ad brokers.</li>
+                        <li>Users hesitate to log real health conditions due to privacy fears.</li>
+                        <li>Cloud LLMs act as ungrounded black boxes, hallucinating caloric targets and contradictory medical claims.</li>
+                        <li>Zero clinical guardrails or emergency override protocols.</li>
                     </ul>
                 </div>
+            </div>
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "We have all been there: it is 1:00 AM, you feel an eyelid twitch after an espresso, you Google it, and within five minutes you are reading about motor neuron disease. That is cyberchondria. Commercial search engines monetize fear. We need a private, grounded solution."</div>
             </div>
         </div>
 
         <!-- SLIDE 3 -->
-        <div class="slide" data-notes="Existing tools fall into four flawed buckets: search engines terrify you; single-purpose calculators are completely siloed; generic cloud LLMs hallucinate numbers and leak your data; and subscription wearables lock your own biometrics behind 300-dollar annual paywalls. VitalSync AI bridges this gap with an all-in-one, local-first platform built on verified science.">
-            <div class="slide-category">Competitive Analysis</div>
-            <div class="slide-title">Market Gap: <span>Why Existing Solutions Fail Everyday Users</span></div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Solution Category</th>
-                        <th>Primary Failure Mode</th>
-                        <th>Impact on Everyday User</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Search Engines (Google, WebMD)</strong></td>
-                        <td>Alarmist SEO ranking prioritizes catastrophic worst-case edge cases.</td>
-                        <td>Triggers acute health anxiety & cyberchondria.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Fragmented Web Calculators</strong></td>
-                        <td>Siloed, isolated tools (BMR, macros, sleep) that never communicate.</td>
-                        <td>Calorie advice completely ignores sleep debt and active caffeine.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Generic Cloud LLMs (ChatGPT)</strong></td>
-                        <td>Ungrounded black boxes that hallucinate numbers & leak private biometrics.</td>
-                        <td>Untrusted, inconsistent advice; zero clinical emergency triage.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Subscription Wearables (Whoop, Oura)</strong></td>
-                        <td>$300+/year paywalls locking biometrics inside proprietary cloud silos.</td>
-                        <td>Inaccessible to students; passive metrics without anxiety de-escalation.</td>
-                    </tr>
-                    <tr style="background: rgba(56, 189, 248, 0.1);">
-                        <td><strong style="color:#38bdf8;">VitalSync AI</strong></td>
-                        <td><strong style="color:#10b981;">Homogeneous biophysics + 5 ML models + 100% offline local GPU LLM.</strong></td>
-                        <td><strong style="color:#38bdf8;">Zero anxiety, zero hallucination, zero cloud leakage, $0 subscriptions.</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- SLIDE 4 -->
-        <div class="slide" data-notes="VitalSync AI redefines digital health. Instead of guessing or alarming the user, it runs a deterministic, evidence-grounded pipeline. If your weight jumps 1.5 kg overnight, VitalSync AI calculates the exact glycogen-water mass balance, explaining that stored glycogen binds 3 to 4 grams of water per gram, proving it is harmless fluid retention. And every calculation runs privately on your own GPU.">
-            <div class="slide-category">Core Value Proposition</div>
-            <div class="slide-title">Our Solution: <span>VitalSync AI — The 4 Core Pillars</span></div>
+        <div class="slide" id="slide-3">
+            <div class="slide-category">COMPETITIVE LANDSCAPE & MARKET GAPS</div>
+            <h1 class="slide-title">Market Gap: <span>Why Existing Solutions Fail Everyday Users</span></h1>
             <div class="grid-2">
-                <div class="card card-green">
-                    <h3>1. Zero-Hallucination Biophysics</h3>
+                <div class="card card-amber">
+                    <h3>❌ Search Engines (Google / WebMD)</h3>
                     <ul>
-                        <li>All calculations executed via validated Python algorithms before AI prompts.</li>
-                        <li>Mifflin-St Jeor & Katch-McArdle BMR, dynamic macronutrient partitioning.</li>
-                        <li>First-order caffeine pharmacokinetics (t_1/2 = 5.5h) and scale glycogen-water bounds.</li>
-                        <li>The AI is physically prevented from inventing or guessing numbers.</li>
+                        <li>Monetize ad clicks by surfacing rare, terrifying pathologies for benign symptoms.</li>
+                        <li>Zero awareness of user vitals, caffeine clearance, or hydration context.</li>
+                        <li>Converts harmless muscle twitches into acute psychiatric health anxiety.</li>
                     </ul>
                 </div>
                 <div class="card card-cyan">
-                    <h3>2. Anti-Cyberchondria Demystification</h3>
+                    <h3>❌ Fragmented Web Calculators</h3>
                     <ul>
-                        <li>Deconstructs harmless somatic signals with calm, cellular explanations.</li>
-                        <li>Explains post-coffee heart thumping as adenosine blockade, not heart disease.</li>
-                        <li>Explains 1.5kg scale jumps as glycogen-bound water (3-4g water per gram glycogen).</li>
-                        <li>Focuses on the Top 3 High-Impact Behavioral Levers to prevent cognitive overload.</li>
+                        <li>Siloed calculators for calories, macros, TDEE, and sleep debt that never communicate.</li>
+                        <li>Calorie advice completely ignores sleep latency, caffeine, and stress markers.</li>
+                        <li>Forces users to manually synthesize conflicting advice across 5 websites.</li>
                     </ul>
                 </div>
-                <div class="card card-purple">
-                    <h3>3. 100% Localhost GPU Privacy</h3>
+                <div class="card card-red">
+                    <h3>❌ Generic Cloud Chatbots (ChatGPT / Claude)</h3>
                     <ul>
-                        <li>Complete offline operation. Python ML + local Qwen LLM on GPU via Ollama.</li>
-                        <li>Zero cloud API subscriptions; zero external telemetry or tracking.</li>
-                        <li>Full data sovereignty: biometrics never leave the user's machine.</li>
-                        <li>Sub-30 millisecond complete diagnostic payload generation.</li>
+                        <li>Ungrounded black boxes prone to mathematical and dietary hallucinations.</li>
+                        <li>Transmit private health prompts across third-party cloud infrastructure.</li>
+                        <li>Lacks deterministic clinical triage or emergency override boundaries.</li>
                     </ul>
+                </div>
+                <div class="card card-green">
+                    <h3>❌ Subscription Wearables (Whoop / Oura Cloud)</h3>
+                    <ul>
+                        <li>Expensive $300+/year paywalls locking biometrics in proprietary cloud silos.</li>
+                        <li>Inaccessible to students, developers, and low-income demographics.</li>
+                        <li>Passive metric display without actionable, grounded anti-anxiety explanations.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "Existing tools fail across four major categories: search engines terrify you; single-purpose calculators are completely siloed; generic cloud LLMs hallucinate numbers and leak your data; and subscription wearables lock your own biometrics behind $300 annual paywalls."</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide" id="slide-4">
+            <div class="slide-category">SYSTEM ARCHITECTURE & CORE INNOVATION</div>
+            <h1 class="slide-title">The Solution: <span>Homogeneous Single-Payload Architecture</span></h1>
+            <div class="grid-3" style="grid-template-rows: 1fr 1fr; gap: 14px;">
+                <div class="card card-cyan">
+                    <h3>Step 1: Unified Schema Contract</h3>
+                    <p style="font-size: 11.5px; color: #cbd5e1;"><code>UserHealthProfile</code> Pydantic model validates all biometrics, vitals, sleep, caffeine, and symptoms.</p>
+                </div>
+                <div class="card card-green">
+                    <h3>Step 2: Biophysical Engine (&lt;1ms)</h3>
+                    <p style="font-size: 11.5px; color: #cbd5e1;">Deterministic Mifflin/Katch BMR, dynamic macro partitioning, caffeine clearance curve, and scale weight bounds.</p>
                 </div>
                 <div class="card card-amber">
-                    <h3>4. Clinical Guardrails & Doctor Briefing</h3>
-                    <ul>
-                        <li>Deterministic 3-tier triage engine (Green, Yellow, Red Emergency Override).</li>
-                        <li>AHA/ACC blood pressure classification halts lifestyle advice if BP >= 180/120.</li>
-                        <li>1-Click standardized Markdown/PDF Doctor Visit Briefing for primary care visits.</li>
-                        <li>Interactive What-If counterfactual simulator for real-time habit testing.</li>
-                    </ul>
+                    <h3>Step 3: 5 ML Ensembles (~4ms)</h3>
+                    <p style="font-size: 11.5px; color: #cbd5e1;">Singleton MLInferenceEngine runs models for 10-Yr Cardio Risk, Pre-Diabetes, Sleep Latency, and Burnout.</p>
                 </div>
+                <div class="card card-red">
+                    <h3>Step 4: Clinical Safety Triage (&lt;0.1ms)</h3>
+                    <p style="font-size: 11.5px; color: #cbd5e1;">Deterministic rules evaluate AHA blood pressure staging and red flags; assigns Green, Yellow, or Red Override.</p>
+                </div>
+                <div class="card card-purple">
+                    <h3>Step 5: Master Diagnostic Payload</h3>
+                    <p style="font-size: 11.5px; color: #cbd5e1;">Bundles all verified metrics, percentages, and flags into a tamper-proof ComprehensiveDiagnosticPayload JSON.</p>
+                </div>
+                <div class="card card-cyan">
+                    <h3>Step 6: Local Qwen GPU LLM (1-2s)</h3>
+                    <p style="font-size: 11.5px; color: #cbd5e1;">Ollama feeds payload to local Qwen 0.8B on GPU for empathetic plain-English translation without hallucination.</p>
+                </div>
+            </div>
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "Here is our homogeneous architecture. The key insight is that our local Qwen LLM is strictly an interpreter of pre-computed, locked truth. Because the numbers are calculated by Python first, the AI is physically prevented from inventing or guessing numbers."</div>
             </div>
         </div>
 
         <!-- SLIDE 5 -->
-        <div class="slide" data-notes="Here is our architectural pipeline. Everything starts with a single Pydantic schema contract. That profile is fed into our biophysical math engine, our functional deficiency knowledge graph, and our five machine learning pipelines in parallel. The results pass through a deterministic clinical safety triage engine, which packages a locked JSON diagnostic payload. Notice the critical innovation here: the local Qwen LLM is strictly an interpreter of pre-computed truth. It is physically impossible for the AI to hallucinate numbers because every single metric has already been verified and locked by deterministic Python code before the prompt is created.">
-            <div class="slide-category">Engineering Blueprint</div>
-            <div class="slide-title">System Architecture: <span>The Single-Payload Pipeline</span></div>
+        <div class="slide" id="slide-5">
+            <div class="slide-category">PRODUCT SHOWCASE • METABOLIC & CARDIOVASCULAR INTELLIGENCE</div>
+            <h1 class="slide-title">Production Dashboard: <span>Multi-Risk Gauges & Macro Nutrition</span></h1>
             <div class="grid-2">
-                <div class="card card-cyan">
-                    <h3>Intake & Deterministic Computation</h3>
-                    <ul>
-                        <li><strong>Step 1 (Schema Contract):</strong> UserHealthProfile validates vitals, sleep, screen time, caffeine, steps, and symptoms.</li>
-                        <li><strong>Step 2 (Biophysical Math <1ms):</strong> Computes BMR (Mifflin/Katch), TDEE, dynamic macros, caffeine decay curve, and water balance.</li>
-                        <li><strong>Step 3 (5 ML Ensembles ~4ms):</strong> Runs models for 10-Yr Cardio Risk, Pre-Diabetes, Sleep Latency, Sleep Apnea, and Screen Burnout.</li>
-                    </ul>
+                <div class="img-frame">
+                    <div class="img-frame-header">🖥️ LIVE DASHBOARD OVERVIEW & RISK DIALS</div>
+                    <img src="assets/dashboard_overview.png" alt="Dashboard Overview">
                 </div>
-                <div class="card card-green">
-                    <h3>Safety Triage & Local AI Synthesis</h3>
-                    <ul>
-                        <li><strong>Step 4 (Clinical Triage <0.1ms):</strong> Screener enforces AHA/ACC guidelines; sets Level 1 Green, Level 2 Yellow, or Level 3 Red Emergency.</li>
-                        <li><strong>Step 5 (Diagnostic Payload):</strong> Bundles all metrics, probabilities, and flags into a locked JSON object.</li>
-                        <li><strong>Step 6 (Local Qwen GPU 1-2s):</strong> Ollama passes payload to local Qwen 0.8B on GPU for empathetic plain-English translation without hallucination.</li>
-                    </ul>
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <div class="img-frame" style="max-height: 220px;">
+                        <div class="img-frame-header">🥗 DYNAMIC MACRONUTRIENT DONUT</div>
+                        <img src="assets/macros_nutrition.png" alt="Macros Nutrition" style="max-height: 180px; object-fit: contain;">
+                    </div>
+                    <div class="card card-green" style="flex-grow: 1;">
+                        <h3>Metabolic Intelligence Highlights</h3>
+                        <ul>
+                            <li><strong>Live 5-Dial SVG Risk Matrix:</strong> Visual color-coded risk probabilities (Cardio 12%, Diabetes 15%).</li>
+                            <li><strong>Dynamic Macro Partitioning:</strong> 1.8g/kg protein target and essential fat floor.</li>
+                            <li><strong>Real-Time Vitals:</strong> Resting BP, Heart Rate & SpO2 with AHA staging.</li>
+                            <li><strong>Sub-30ms REST API:</strong> High-performance FastAPI backend.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div style="margin-top: 18px; padding: 12px 18px; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; font-size: 13px; text-align: center;">
-                ⚡ <strong>End-to-End Performance:</strong> Complete diagnostic payload roundtrip executed in <strong>&lt; 30 milliseconds</strong> via FastAPI.
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "This slide shows our live production dashboard running on localhost. On the left is the glassmorphic dashboard with the live triage banner and five risk dials. On the right is our nutrition engine with macro partitioning based on the user's lean mass."</div>
             </div>
         </div>
 
         <!-- SLIDE 6 -->
-        <div class="slide" data-notes="VitalSync AI delivers six rich, production-tested features. The dashboard gives you an instant health scorecard with color-coded ML dials. The Caffeine Clock plots your personal first-order clearance curve, showing you exactly how much active stimulant is in your bloodstream at bedtime and calculating your recommended cutoff time. The 'Am I Okay?' module deconstructs sudden somatic panics in 60 seconds. The What-If simulator lets you drag sliders—cutting bedtime phone use by 30 minutes—and watch your predicted sleep latency drop by 17 minutes in real time. And before you visit your doctor, one click generates a standardized clinical briefing that saves 5 minutes of consultation time.">
-            <div class="slide-category">Live Product Demonstration</div>
-            <div class="slide-title">Product Deep Dive: <span>6 Features Engineered for Real Life</span></div>
-            <div class="grid-2">
-                <div style="text-align: center;">
-                    <img src="assets/dashboard_overview.png" class="slide-img" alt="Dashboard" />
-                    <p style="font-size: 11px; color: #94a3b8; margin-top: 6px;">Unified Health Dashboard & 5 ML Predictive Risk Dials</p>
+        <div class="slide" id="slide-6">
+            <div class="slide-category">PRODUCT SHOWCASE • CIRCADIAN & SLEEP ARCHITECTURE</div>
+            <h1 class="slide-title">24-Hour Caffeine Clock <span>& Bedtime Stimulant Clearance</span></h1>
+            <div class="grid-2" style="grid-template-columns: 1.4fr 1fr;">
+                <div class="img-frame">
+                    <div class="img-frame-header">☕ 24-HOUR CAFFEINE ELIMINATION DECAY CURVE</div>
+                    <img src="assets/caffeine_circadian.png" alt="Caffeine Circadian Curve">
                 </div>
-                <div style="text-align: center;">
-                    <img src="assets/caffeine_circadian.png" class="slide-img" alt="Caffeine Curve" />
-                    <p style="font-size: 11px; color: #94a3b8; margin-top: 6px;">24-Hour Pharmacokinetic Caffeine Curve & Curfew Clock</p>
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <div class="card card-cyan">
+                        <h3>Pharmacokinetic Half-Life Model</h3>
+                        <ul>
+                            <li>First-order elimination: $C(t) = C_0 \cdot (0.5)^{t / 5.5}$</li>
+                            <li>Models 24-hour serum stimulant clearance.</li>
+                            <li>Bedtime Cutoff Threshold: Flags when active caffeine &gt;25mg at sleep time.</li>
+                            <li>Curfew Calculator: Computes exact hour to halt coffee.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-amber">
+                        <h3>Anti-Anxiety Demystification</h3>
+                        <ul>
+                            <li>Explains post-coffee heart palpitations as benign adenosine receptor blockade, NOT heart failure.</li>
+                            <li>Correlates bedtime screen blue light with melatonin inhibition.</li>
+                            <li>Reduces sleep latency by 15-30 minutes through behavioral curfews.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="grid-3" style="margin-top: 14px;">
-                <div class="card card-cyan" style="padding: 10px 14px;">
-                    <h3 style="font-size: 13px; margin-bottom: 4px;">🥗 Precision Macro Plate</h3>
-                    <p style="font-size: 11.5px; color: #cbd5e1;">Donut chart, calorie deficit budgeting, protein protection, and whole-food meal equivalents.</p>
-                </div>
-                <div class="card card-green" style="padding: 10px 14px;">
-                    <h3 style="font-size: 13px; margin-bottom: 4px;">🔮 What-If Simulator</h3>
-                    <p style="font-size: 11.5px; color: #cbd5e1;">Live sliders projecting sleep latency drops (-16.7 min) and fatigue score reductions (-2.2 pts).</p>
-                </div>
-                <div class="card card-purple" style="padding: 10px 14px;">
-                    <h3 style="font-size: 13px; margin-bottom: 4px;">📄 Doctor Visit Briefing</h3>
-                    <p style="font-size: 11.5px; color: #cbd5e1;">Print-ready 1-page clinical summary saving 5 minutes during primary care physician visits.</p>
-                </div>
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "Caffeine has a 5.5-hour half-life. If you drink 200 mg at 4:00 PM, you still have nearly 100 mg in your blood at 10:00 PM. Our curve maps exact stimulant clearance and alerts users if bedtime caffeine exceeds 25 mg, explaining flutters as harmless adenosine blockade."</div>
             </div>
         </div>
 
         <!-- SLIDE 7 -->
-        <div class="slide" data-notes="To adhere strictly to our zero-hallucination directive, our models are trained on authentic, peer-reviewed public health datasets. Over 500,000 real-world records power these ensembles. Our cardiovascular model achieves an ROC-AUC of 0.817, our pre-diabetes screener reaches 0.819 without invasive blood draws, and our sleep pathology classifier reaches an F1-score of 0.893. All models are unit-tested and verified with 24 passing automated tests.">
-            <div class="slide-category">Empirical Rigor</div>
-            <div class="slide-title">Scientific Grounding: <span>5 ML Ensembles on 500,000+ CDC Records</span></div>
+        <div class="slide" id="slide-7">
+            <div class="slide-category">PRODUCT SHOWCASE • COUNTERFACTUAL HABIT SIMULATION</div>
+            <h1 class="slide-title">What-If Simulation Engine <span>& Nutrient Deficiency Graph</span></h1>
+            <div class="grid-2">
+                <div class="img-frame">
+                    <div class="img-frame-header">🎛️ INTERACTIVE 'WHAT-IF' HABIT SIMULATOR</div>
+                    <img src="assets/what_if_simulator.png" alt="What-If Simulator">
+                </div>
+                <div class="img-frame">
+                    <div class="img-frame-header">🧬 FUNCTIONAL MICRONUTRIENT KNOWLEDGE MATRIX</div>
+                    <img src="assets/nutrient_matrix.png" alt="Nutrient Matrix">
+                </div>
+            </div>
+            <div class="grid-2" style="margin-top: 14px;">
+                <div class="card card-green">
+                    <h3>Counterfactual 'What-If' Simulation</h3>
+                    <ul>
+                        <li>Live sliders for bedtime screen minutes (-45 min) and daily steps (+3,000).</li>
+                        <li>Forecasts projected sleep latency drop (-18 min) and cardio risk decrease in real time.</li>
+                    </ul>
+                </div>
+                <div class="card card-purple">
+                    <h3>Biochemical Deficiency Mapping</h3>
+                    <ul>
+                        <li>Connects brain fog, eyelid twitches, and crashes to Magnesium, Potassium, B12, and D3.</li>
+                        <li>Maps cofactors to whole foods, synergists (Vit C + Iron), and absorption inhibitors.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "On Slide 7, we showcase two interactive features. On the left is our counterfactual What-If simulator allowing users to drag sliders and see projected sleep latency drop by 18 minutes. On the right is our functional nutrient graph mapping twitches directly to biochemical cofactors."</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8 -->
+        <div class="slide" id="slide-8">
+            <div class="slide-category">PRODUCT SHOWCASE • SAFETY TRIAGE & CLINICAL CONTINUITY</div>
+            <h1 class="slide-title">60s Panic De-escalator <span>& 1-Page Doctor Briefing Export</span></h1>
+            <div class="grid-2">
+                <div class="img-frame">
+                    <div class="img-frame-header">🛡️ 60-SECOND 'AM I OKAY?' DE-ESCALATOR</div>
+                    <img src="assets/anxiety_deescalator.png" alt="Anxiety De-escalator">
+                </div>
+                <div class="img-frame">
+                    <div class="img-frame-header">📋 STANDARDIZED 1-PAGE DOCTOR BRIEFING</div>
+                    <img src="assets/doctor_briefing.png" alt="Doctor Briefing">
+                </div>
+            </div>
+            <div class="grid-2" style="margin-top: 14px;">
+                <div class="card card-amber">
+                    <h3>Biological Reassurance & Scale Mechanics</h3>
+                    <ul>
+                        <li>60-Second De-escalator explains twitches as neuromuscular fatigue / electrolytes.</li>
+                        <li>Demystifies 1.5kg scale jumps: 3-4g water bound per gram of stored glycogen.</li>
+                        <li>Dismantles cyberchondria before users rush to the emergency room.</li>
+                    </ul>
+                </div>
+                <div class="card card-red">
+                    <h3>Deterministic 3-Tier Clinical Safety Triage</h3>
+                    <ul>
+                        <li>🟢 <strong>Level 1 Green:</strong> Self-directed wellness coaching enabled.</li>
+                        <li>🟡 <strong>Level 2 Yellow:</strong> Routine clinical checkup recommended (Stage 1/2 HTN).</li>
+                        <li>🔴 <strong>Level 3 Red:</strong> Emergency lockout for BP &ge; 180/120 or chest pain (calls 911).</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "Slide 8 demonstrates our patient well-being and clinical safety tools. The 'Am I Okay?' tool explains 1.5kg scale jumps as water retention, not fat. And underneath it all is our 3-tier triage engine: if BP is in hypertensive crisis, the entire app locks out lifestyle advice and directs the user to dial 911."</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9 -->
+        <div class="slide" id="slide-9">
+            <div class="slide-category">SCIENTIFIC VALIDATION & ML BENCHMARKS</div>
+            <h1 class="slide-title">5 Supervised Models <span>Trained on 500,000+ CDC Records</span></h1>
             <table>
                 <thead>
                     <tr>
                         <th>Model Pipeline</th>
                         <th>Dataset Source</th>
-                        <th>Records (N)</th>
+                        <th>Sample Size</th>
                         <th>Algorithm</th>
-                        <th>Primary Benchmark</th>
+                        <th>Verified Benchmark</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>1. 10-Yr Cardiovascular Risk</strong></td>
-                        <td>CDC BRFSS 2020</td>
+                        <td>CDC BRFSS 2020 Heart Disease</td>
                         <td>319,795 rows</td>
                         <td>Balanced Logistic Regression</td>
-                        <td><strong style="color:#10b981;">ROC-AUC: 0.817</strong></td>
+                        <td><strong style="color: #10b981;">ROC-AUC: 0.817</strong></td>
                     </tr>
                     <tr>
                         <td><strong>2. Pre-Diabetes Screener</strong></td>
-                        <td>CDC BRFSS 50/50 Split</td>
+                        <td>CDC BRFSS Diabetes 50/50</td>
                         <td>70,692 rows</td>
                         <td>HistGradientBoosting Classifier</td>
-                        <td><strong style="color:#10b981;">ROC-AUC: 0.819</strong></td>
+                        <td><strong style="color: #38bdf8;">ROC-AUC: 0.819</strong></td>
                     </tr>
                     <tr>
                         <td><strong>3. Circadian Latency & Debt</strong></td>
                         <td>Bedtime Screentime Cohort</td>
                         <td>8,500 rows</td>
-                        <td>Multi-Output Regressor / Clf</td>
-                        <td><strong style="color:#38bdf8;">Latency RMSE: 6.84 min</strong></td>
+                        <td>Multi-Output Regressor & Clf</td>
+                        <td><strong style="color: #f59e0b;">RMSE: 6.84 min</strong></td>
                     </tr>
                     <tr>
                         <td><strong>4. Sleep Pathology Classifier</strong></td>
                         <td>Clinical Polysomnography</td>
                         <td>374 rows</td>
                         <td>Balanced Random Forest</td>
-                        <td><strong style="color:#a855f7;">Weighted F1: 0.893</strong></td>
+                        <td><strong style="color: #a855f7;">F1-Score: 0.893</strong></td>
                     </tr>
                     <tr>
                         <td><strong>5. Digital Burnout Screener</strong></td>
                         <td>Student Lifestyle Cohort</td>
                         <td>100,000 rows</td>
                         <td>HistGradientBoosting Regressor</td>
-                        <td><strong style="color:#f59e0b;">Stress RMSE: 1.48 / 10</strong></td>
+                        <td><strong style="color: #38bdf8;">Stress RMSE: 1.48 / 10</strong></td>
                     </tr>
                 </tbody>
             </table>
-            <div style="margin-top: 20px;" class="grid-2">
-                <div class="card card-green">
-                    <h3>Biophysical Mathematical Grounding</h3>
-                    <ul>
-                        <li>Mifflin-St Jeor & Katch-McArdle metabolic benchmark equations.</li>
-                        <li>Caffeine clearance modeled via hepatic first-order kinetics (t_1/2 = 5.5h).</li>
-                        <li>Glycogen-water mass balance explaining 1-2.5kg scale oscillations.</li>
-                    </ul>
-                </div>
-                <div class="card card-cyan">
-                    <h3>Automated Pytest Verification</h3>
-                    <ul>
-                        <li><strong>24 Automated Tests Passing</strong> in 3.25 seconds.</li>
-                        <li>Tests cover BMR tables, caffeine decay at 0, 5.5, 11, 16.5h, and triage overrides.</li>
-                        <li>Zero hallucinations verified through deterministic boundary tests.</li>
-                    </ul>
-                </div>
+            <div class="card card-cyan" style="margin-top: 18px;">
+                <h3>Local GPU Neural Engine & Verified Automated Test Suite</h3>
+                <p style="font-size: 12px; color: #cbd5e1;">
+                    100% Offline GPU compute via Ollama (Qwen 3.5 0.8B) • $0.00 marginal query cost • <strong>24/24 unit tests passing in pytest (3.25s)</strong> with zero regressions across biophysical formulas, ML bounds, and safety triage rules.
+                </p>
             </div>
-        </div>
-
-        <!-- SLIDE 8 -->
-        <div class="slide" data-notes="Clinical safety is our highest priority. We enforce an automated Three-Tier Clinical Triage Engine. Level 1 covers routine lifestyle optimization. Level 2 catches persistent anomalies like Stage 2 hypertension or suspected sleep apnea, prompting a doctor checkup. And Level 3 is a hard emergency override: if resting BP is 185 over 125 or cardiac red flags occur, all lifestyle tips are suppressed and the user is directed to call 911 or go to the nearest emergency room.">
-            <div class="slide-category">Medical Safety & Ethics</div>
-            <div class="slide-title">Clinical Safety: <span>Deterministic 3-Tier Red-Flag Triage Engine</span></div>
-            <div class="grid-3">
-                <div class="card card-green">
-                    <h3>🟢 Level 1: Green<br/>Lifestyle Optimization</h3>
-                    <ul>
-                        <li><strong>Criteria:</strong> Vitals within normal limits (BP &lt; 130/80 mmHg, HR &lt; 100 BPM).</li>
-                        <li><strong>Action:</strong> Self-directed lifestyle coaching enabled.</li>
-                        <li><strong>Focus:</strong> Sleep hygiene, macro splits, hydration, caffeine cutoff curfew.</li>
-                        <li><strong>Status:</strong> Reassuring green status banner active across all views.</li>
-                    </ul>
-                </div>
-                <div class="card card-amber">
-                    <h3>🟡 Level 2: Yellow<br/>Clinical Review Recommended</h3>
-                    <ul>
-                        <li><strong>Criteria:</strong> Stage 1/2 Hypertension confirmed (140/90 &le; BP &lt; 180/120), high Apnea risk, pre-diabetes flag.</li>
-                        <li><strong>Action:</strong> Lifestyle advice displayed alongside clear, professional PCP recommendation banner.</li>
-                        <li><strong>Focus:</strong> Behavioral mitigation + scheduling a routine doctor checkup.</li>
-                        <li><strong>Status:</strong> Prompts export of Doctor Visit Briefing.</li>
-                    </ul>
-                </div>
-                <div class="card card-red">
-                    <h3>🔴 Level 3: Red<br/>EMERGENCY OVERRIDE</h3>
-                    <ul>
-                        <li><strong>Criteria:</strong> Hypertensive crisis (BP &ge; 180/120), acute chest pain, shortness of breath, sudden numbness.</li>
-                        <li><strong>Action:</strong> IMMEDIATE INTERFACE LOCKOUT.</li>
-                        <li>All lifestyle and dietary tips are suppressed.</li>
-                        <li>Displays full-screen red emergency modal directing user to call 911 / 112 immediately.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 9 -->
-        <div class="slide" data-notes="Privacy is the cornerstone of VitalSync AI. Cloud health apps expect you to upload your intimate health data to their servers. VitalSync AI runs 100% offline. Local Python handles the math and ML, and local Ollama runs Qwen on your GPU. Because inference happens on the user's machine, our marginal cost per query is zero dollars. This provides complete privacy and an unbeatable economic advantage over cloud AI competitors.">
-            <div class="slide-category">Privacy & Local Architecture</div>
-            <div class="slide-title">Local-First Privacy: <span>100% Offline GPU Compute via Ollama</span></div>
-            <div class="grid-2">
-                <div class="card card-cyan">
-                    <h3>Zero Cloud Telemetry & Leakage</h3>
-                    <ul>
-                        <li>Biometrics, sleep logs, and symptoms stay 100% on localhost.</li>
-                        <li>Zero external HTTP calls; zero third-party analytics or tracking pixels.</li>
-                        <li>Eliminates cloud data broker risks and HIPAA liabilities.</li>
-                        <li>Completely immune to cloud server outages or data breaches.</li>
-                    </ul>
-                </div>
-                <div class="card card-green">
-                    <h3>Local GPU Acceleration</h3>
-                    <ul>
-                        <li>Ollama hosts Qwen 3.5 (0.8B) locally on the user's GPU.</li>
-                        <li>Token generation speed exceeds 45 tokens/second locally.</li>
-                        <li>Sub-30ms API response time on FastAPI backend.</li>
-                        <li>Offline failover template ensures zero downtime if Ollama is paused.</li>
-                    </ul>
-                </div>
-                <div class="card card-purple">
-                    <h3>Grounded Payload Ingestion</h3>
-                    <ul>
-                        <li>LLM acts purely as an empathetic translator of verified truth.</li>
-                        <li>Receives locked JSON diagnostic payload containing all pre-computed metrics.</li>
-                        <li>System prompt strictly forbids inventing numbers or making medical diagnoses.</li>
-                        <li>Focuses exclusively on Top 3 High-Impact Behavioral Levers.</li>
-                    </ul>
-                </div>
-                <div class="card card-amber">
-                    <h3>Zero Inference Cost Advantage</h3>
-                    <ul>
-                        <li>Cloud LLM APIs cost $0.03 - $0.10 per consultation query.</li>
-                        <li>VitalSync AI marginal query cost: <strong>$0.00</strong> (user's own hardware).</li>
-                        <li>Enables sustainable open-source and B2B software distribution.</li>
-                        <li>Gross margin on desktop software licenses exceeds <strong>95%</strong>.</li>
-                    </ul>
-                </div>
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "Zero hallucination requires genuine scientific rigor. Our models are trained on over 500,000 authentic records from the CDC and clinical polysomnography studies. Our cardio model achieves an ROC-AUC of 0.817; our pre-diabetes screener reaches 0.819; and all 24 automated unit tests pass in 3.25 seconds."</div>
             </div>
         </div>
 
         <!-- SLIDE 10 -->
-        <div class="slide" data-notes="Here is our Lean Canvas summary. We operate an Open-Core model: the code is open-source for developers, while we monetize everyday consumers with a $29 packaged desktop application and license a $49-per-month B2B dashboard to preventive wellness clinics. Because our cloud infrastructure cost is virtually zero, our unit economics are exceptionally strong.">
-            <div class="slide-category">Business Model & Strategy</div>
-            <div class="slide-title">The Lean Canvas: <span>Sustainable Unit Economics & Strategy</span></div>
+        <div class="slide" id="slide-10">
+            <div class="slide-category">BUSINESS MODEL, IMPACT & ROADMAP</div>
+            <h1 class="slide-title">Lean Canvas Overview, <span>UN SDG 3 (Target 3.4) & Next Horizons</span></h1>
             <div class="grid-3">
                 <div class="card card-cyan">
-                    <h3>Segments & Channels</h3>
+                    <h3>Business Model & Lean Canvas</h3>
                     <ul>
-                        <li><strong>B2C Tech Workers & Students:</strong> Digital burnout, screen time, health anxiety.</li>
-                        <li><strong>B2C Privacy Advocates:</strong> Users refusing cloud health tracking.</li>
-                        <li><strong>B2B Wellness Clinics:</strong> Patient lifestyle intake & briefing logs.</li>
-                        <li><strong>Channels:</strong> GitHub open-source, r/LocalLLaMA, r/healthanxiety, hackathons, clinic partnerships.</li>
+                        <li><strong>Open-Core Model:</strong> Free MIT Community Edition for developers and public health.</li>
+                        <li><strong>Desktop Pro ($29 One-Time):</strong> Packaged app with auto model manager & PDF export.</li>
+                        <li><strong>Clinic B2B ($49/mo):</strong> Multi-client management, branded briefings, EHR export.</li>
+                        <li><strong>Cost Structure:</strong> $0 cloud LLM fees; $0 cloud DB; &gt;95% gross margin.</li>
                     </ul>
                 </div>
                 <div class="card card-green">
-                    <h3>Open-Core Revenue Streams</h3>
+                    <h3>UN SDG 3 (Target 3.4) Impact</h3>
                     <ul>
-                        <li><strong>Community Edition (MIT):</strong> 100% free open-source pipeline for developers.</li>
-                        <li><strong>VitalSync Desktop Pro ($29):</strong> One-time packaged app with auto model manager & PDF export.</li>
-                        <li><strong>Clinic B2B ($49/mo):</strong> Multi-client management, branded briefings, longitudinal trends.</li>
-                        <li><strong>UN SDG 3 Innovation Grants:</strong> Public health research funding.</li>
+                        <li><strong>NCD Prevention:</strong> Early non-invasive screening for cardiovascular disease and diabetes.</li>
+                        <li><strong>Mental Well-Being:</strong> Demystifies somatic signals to eliminate acute cyberchondria.</li>
+                        <li><strong>Circadian Restoration:</strong> Cuts sleep latency and halts late doomscrolling.</li>
+                        <li><strong>Health Equity:</strong> 100% free and open-source; runs on personal hardware.</li>
                     </ul>
                 </div>
                 <div class="card card-purple">
-                    <h3>Cost Structure & Margins</h3>
+                    <h3>Deliverables & Live Repository</h3>
                     <ul>
-                        <li><strong>Cloud LLM Cost:</strong> $0.00 / user (local GPU inference).</li>
-                        <li><strong>Cloud Database Cost:</strong> $0.00 (local SQLite / local state).</li>
-                        <li><strong>Gross Margins:</strong> &gt; 95% on software licenses.</li>
-                        <li><strong>Key Metrics:</strong> 100% triage accuracy; sub-30ms latency; &gt;40% health anxiety reduction score.</li>
+                        <li>Production REST Server (&lt;30ms API) & Glassmorphic Dashboard.</li>
+                        <li>Streamlit Pro UI with interactive What-If habit simulation.</li>
+                        <li>24/24 Automated Unit Tests passing in pytest.</li>
+                        <li>Combined Lean Canvas & Concept Note PDF.</li>
+                        <li><strong>GitHub:</strong> github.com/Mohammed-Salman-Hussain/VitalSync-AI</li>
+                        <li><strong>Lead:</strong> Mohammed Salman Hussain (salmanhussain1199@gmail.com)</li>
                     </ul>
                 </div>
+            </div>
+            <div class="notes-drawer">
+                <span>🎙️</span>
+                <div><strong>Speaker Notes:</strong> "In conclusion, VitalSync AI directly fulfills the requirements of IBM SkillsBuild Masterclass 5 and UN SDG 3, Target 3.4. We have delivered a production REST API, dual web interfaces, 5 calibrated ML models, 24 passing unit tests, and a combined Lean Canvas and Concept Note PDF. Everything is open-source on GitHub. Thank you very much, and I welcome your questions."</div>
             </div>
         </div>
 
-        <!-- SLIDE 11 -->
-        <div class="slide" data-notes="VitalSync AI directly contributes to UN SDG 3, Target 3.4. By screening for early cardiovascular and metabolic risks, mitigating digital burnout, providing free access without paywalls, and equipping doctors with standardized 1-page summaries, we make preventive wellness actionable, equitable, and effective.">
-            <div class="slide-category">Sustainable Development Goals</div>
-            <div class="slide-title">UN SDG 3 Alignment: <span>Target 3.4 Real-World Impact</span></div>
-            <div class="grid-2">
-                <div class="card card-green">
-                    <h3>Target 3.4: Non-Communicable Disease Prevention</h3>
-                    <ul>
-                        <li>NCDs account for 74% of all global deaths annually.</li>
-                        <li>VitalSync AI detects sub-clinical cardiovascular and pre-diabetic risk markers early.</li>
-                        <li>Identifies lifestyle risks years before irreversible clinical diagnosis occurs.</li>
-                        <li>Provides actionable dietary and step-count levers to alter long-term disease trajectories.</li>
-                    </ul>
-                </div>
-                <div class="card card-cyan">
-                    <h3>Mental Well-Being & Digital Burnout Mitigation</h3>
-                    <ul>
-                        <li>Directly addresses bedtime screen doomscrolling and chronic sleep debt.</li>
-                        <li>Reduces somatic health anxiety by eliminating alarmist search engine results.</li>
-                        <li>Demystifies everyday bodily signals with reassuring biological science.</li>
-                        <li>Protects young adults and knowledge workers from chronic digital fatigue.</li>
-                    </ul>
-                </div>
-                <div class="card card-amber">
-                    <h3>Health Equity & Universal Accessibility</h3>
-                    <ul>
-                        <li>Zero subscription paywalls; completely free and open-source.</li>
-                        <li>No expensive wearable cloud subscriptions required; runs on everyday PCs.</li>
-                        <li>Brings clinical-grade biophysics and screening to underserved populations.</li>
-                        <li>Bridges the socioeconomic digital health divide.</li>
-                    </ul>
-                </div>
-                <div class="card card-purple">
-                    <h3>Optimizing Primary Care Consultations</h3>
-                    <ul>
-                        <li>Patients arrive at primary care visits with structured 1-page briefings.</li>
-                        <li>Saves 4-6 minutes of diagnostic intake during rushed 15-minute consultations.</li>
-                        <li>Reduces avoidable panic-driven visits to emergency departments.</li>
-                        <li>Strengthens the collaborative relationship between patients and physicians.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 12 -->
-        <div class="slide" data-notes="In conclusion, VitalSync AI is not a concept or a toy prototype. It is a production-ready, fully tested health intelligence platform with 24 passing automated tests, sub-30ms response times, and 5 trained machine learning models. It eliminates health anxiety, guarantees user privacy, and advances UN Sustainable Development Goal 3. Everything is open-source and live on GitHub. Thank you very much, and I welcome your questions.">
-            <div class="slide-category">Conclusion & Q&A</div>
-            <div class="slide-title">Project Deliverables: <span>Production-Ready & Open Source</span></div>
-            <div class="grid-2">
-                <div class="card card-green">
-                    <h3>✅ What Has Been Built & Delivered</h3>
-                    <ul>
-                        <li>Production FastAPI REST server (&lt;30ms latency) & Glassmorphic Web App.</li>
-                        <li>Streamlit Pro dashboard with interactive What-If lifestyle simulator.</li>
-                        <li>5 Supervised Machine Learning pipelines trained on 500,000+ CDC records.</li>
-                        <li>Validated biophysical math (Mifflin, Katch, caffeine pharmacokinetics).</li>
-                        <li>Deterministic 3-tier clinical safety triage engine (Green/Yellow/Red).</li>
-                        <li>Local Qwen GPU integration via Ollama with prompt guardrails.</li>
-                        <li><strong>24/24 Automated Tests Passing in 3.2 Seconds</strong> via pytest.</li>
-                        <li>Published open-source on GitHub with complete technical report and API docs.</li>
-                    </ul>
-                </div>
-                <div class="card card-cyan">
-                    <h3>🚀 Future Roadmap & Contacts</h3>
-                    <ul>
-                        <li><strong>Phase 6:</strong> Local Bluetooth wearable sensor integration (Apple HealthKit / Garmin).</li>
-                        <li><strong>Phase 7:</strong> Standardized HL7 FHIR electronic health record export.</li>
-                        <li><strong>Phase 8:</strong> One-click packaged desktop installers (Electron / Tauri).</li>
-                        <li style="margin-top: 16px;"><strong>🔗 GitHub:</strong> <a href="https://github.com/Mohammed-Salman-Hussain/VitalSync-AI" style="color:#38bdf8; text-decoration:none;" target="_blank">github.com/Mohammed-Salman-Hussain/VitalSync-AI</a></li>
-                        <li><strong>📄 Concept Note:</strong> CONCEPT_NOTE.md</li>
-                        <li><strong>📊 Lean Canvas:</strong> LEAN_CANVAS.md</li>
-                        <li><strong>👨‍💻 Lead Innovator:</strong> Mohammed Salman Hussain</li>
-                        <li><strong>✉️ Contact:</strong> salmanhussain1199@gmail.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div style="margin-top: 20px; text-align: center; font-size: 14px; color: #10b981; font-weight: 700;">
-                🎉 Thank you! Questions & Discussion Welcome.
-            </div>
-        </div>
-
-    </div>
-
-    <!-- SPEAKER NOTES DRAWER -->
-    <div class="notes-drawer" id="notesDrawer">
-        <div class="notes-title">🎤 Speaker Notes (Slide <span id="notesSlideNum">1</span>)</div>
-        <div id="notesText"></div>
     </div>
 
     <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentIdx = 0;
+        let currentSlide = 1;
+        const totalSlides = 10;
 
-        function updateSlide(idx) {
-            slides.forEach((s, i) => s.classList.toggle('active', i === idx));
-            document.getElementById('slideNum').innerText = `${idx + 1} / ${slides.length}`;
-            document.getElementById('notesSlideNum').innerText = `${idx + 1}`;
-            document.getElementById('notesText').innerText = slides[idx].getAttribute('data-notes') || 'No notes for this slide.';
+        function updateSlideUI() {
+            document.querySelectorAll('.slide').forEach((s, idx) => {
+                s.classList.toggle('active', (idx + 1) === currentSlide);
+            });
+            document.getElementById('counter').innerText = `${currentSlide} / ${totalSlides}`;
         }
 
         function nextSlide() {
-            if (currentIdx < slides.length - 1) {
-                currentIdx++;
-                updateSlide(currentIdx);
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlideUI();
             }
         }
 
         function prevSlide() {
-            if (currentIdx > 0) {
-                currentIdx--;
-                updateSlide(currentIdx);
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlideUI();
             }
         }
 
-        function toggleNotes() {
-            document.getElementById('notesDrawer').classList.toggle('open');
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {});
+            } else {
+                document.exitFullscreen();
+            }
         }
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
-                nextSlide();
-            } else if (e.key === 'ArrowLeft') {
-                prevSlide();
-            } else if (e.key === 's' || e.key === 'S') {
-                toggleNotes();
-            }
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') nextSlide();
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSlide();
         });
-
-        // Initialize notes for first slide
-        updateSlide(0);
     </script>
 </body>
 </html>
