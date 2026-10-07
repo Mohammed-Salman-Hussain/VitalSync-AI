@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use VitalSync AI in your academic research, epidemiological modeling, or health technology project, please cite it as below."
+authors:
+  - family-names: "VitalSync AI Contributors"
+    affiliation: "Open Source Preventive Health Initiative"
+title: "VitalSync AI: A Homogeneous, Scientifically Grounded, Local-First Health & Circadian Intelligence Platform"
+version: 1.0.0
+date-released: 2026-10-07
+url: "https://github.com/vitalsync-ai/vitalsync-ai"
+repository-code: "https://github.com/vitalsync-ai/vitalsync-ai"
+keywords:
+  - "preventive-medicine"
+  - "anti-cyberchondria"
+  - "machine-learning"
+  - "circadian-biology"
+  - "local-ai"
+  - "public-health"
+  - "un-sdg-3"
+license: "MIT"

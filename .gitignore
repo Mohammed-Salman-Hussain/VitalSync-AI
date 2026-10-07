@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# IDE & Editor Configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Large Raw Datasets (>5 MB raw CSVs should be fetched via scripts/download_datasets.py)
+# Preserves datasets/README.md and lightweight clinical samples
+datasets/*.csv
+datasets/fitbit/
+bedtime_screentime_sleep_debt.csv
+!datasets/README.md
+
+# Pretrained Model Bundles (Included in repo - total ~3.5MB for zero-setup execution)
+!models/*.joblib
+
+# Logs and runtime artifacts
+*.log
+scratch/
