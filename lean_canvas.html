@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalSync AI - Lean Canvas (IBM SkillsBuild Masterclass 5)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            padding: 24px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #cbd5e1;
+        }
+        .header h1 { font-size: 24px; font-weight: 800; color: #0284c7; }
+        .header .meta { font-size: 13px; color: #64748b; text-align: right; }
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: 12px;
+            background: #ffffff;
+            padding: 16px;
+            border: 2px solid #0f172a;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .box {
+            border: 1px solid #cbd5e1;
+            padding: 12px 14px;
+            background: #ffffff;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+        }
+        .box-title {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0369a1;
+            margin-bottom: 6px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 4px;
+        }
+        .box-subtitle {
+            font-size: 10px;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        .box-content {
+            font-size: 11px;
+            line-height: 1.45;
+            color: #334155;
+            flex-grow: 1;
+        }
+        .box-content ul {
+            padding-left: 14px;
+            margin-bottom: 8px;
+        }
+        .box-content li { margin-bottom: 4px; }
+        .sub-box {
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px dashed #cbd5e1;
+        }
+
+        /* Grid Placement matching standard Lean Canvas template */
+        .box-problem { grid-column: 1; grid-row: 1 / span 2; }
+        .box-solution { grid-column: 2; grid-row: 1; }
+        .box-metrics { grid-column: 2; grid-row: 2; }
+        .box-uvp { grid-column: 3; grid-row: 1 / span 2; background: #f0f9ff; }
+        .box-advantage { grid-column: 4; grid-row: 1; }
+        .box-channels { grid-column: 4; grid-row: 2; }
+        .box-customers { grid-column: 5; grid-row: 1 / span 2; }
+        .box-cost { grid-column: 1 / span 2; grid-row: 3; }
+        .box-revenue { grid-column: 3 / span 3; grid-row: 3; }
+
+        .tag {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+        }
+
+        @media print {
+            body { padding: 0; background: #fff; }
+            .canvas-grid { box-shadow: none; border: 1px solid #000; }
+            @page { size: landscape; margin: 10mm; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1>VitalSync AI — Lean Canvas</h1>
+            <p style="font-size: 13px; color: #475569; margin-top: 4px;">A Homogeneous, Scientifically Grounded, Local-First Preventive Health & Circadian Intelligence Engine</p>
+        </div>
+        <div class="meta">
+            <div><strong>Program:</strong> IBM SkillsBuild Masterclass 5</div>
+            <div><strong>Target Goal:</strong> UN SDG 3 (Target 3.4) Good Health & Well-being</div>
+            <div><strong>Lead Innovator:</strong> Mohammed Salman Hussain (salmanhussain1199@gmail.com)</div>
+            <div><strong>Date:</strong> October 2026 | <strong>Version:</strong> 1.0 Production</div>
+        </div>
+    </div>
+
+    <div class="canvas-grid">
+
+        <!-- 1. PROBLEM -->
+        <div class="box box-problem">
+            <div class="box-title">1. Problem</div>
+            <div class="box-subtitle">Top 1-3 urgent problems faced by users</div>
+            <div class="box-content">
+                <ul>
+                    <li><strong>The Cyberchondria Panic Loop:</strong> Commercial search engines rank rare, catastrophic pathologies (ALS, heart failure) for common benign sensations (eyelid twitches, post-coffee palpitations, 1.5kg scale jumps), driving severe health anxiety.</li>
+                    <li><strong>Fragmented & Siloed Tools:</strong> Users calculate calories on one site, macros on another, and sleep debt elsewhere; no tools communicate or cross-factor bedtime screens and caffeine half-life.</li>
+                    <li><strong>Cloud Privacy & Telemetry Threat:</strong> Fitness trackers upload intimate biometrics to cloud brokers and ad networks.</li>
+                    <li><strong>Hallucinating Cloud LLMs:</strong> Generic chatbots guess unverified caloric numbers and medical claims without clinical guardrails.</li>
+                </ul>
+                <div class="sub-box">
+                    <div class="box-title">Existing Alternatives</div>
+                    <p style="font-size: 10.5px;">WebMD / Healthline (alarmist SEO ads), generic ChatGPT/Claude (hallucinating black boxes), MyFitnessPal (isolated calorie counter), Whoop/Oura ($300+/yr cloud paywalls).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. SOLUTION -->
+        <div class="box box-solution">
+            <div class="box-title">4. Solution</div>
+            <div class="box-subtitle">Top features addressing each core problem</div>
+            <div class="box-content">
+                <ul>
+                    <li><strong>Homogeneous Single-Payload Architecture:</strong> One unified intake powers metabolic math, 5 ML models, and safety triage in <30ms.</li>
+                    <li><strong>Anti-Cyberchondria De-escalator:</strong> Reassuring biological explainer for post-coffee heart thumping and scale jumps.</li>
+                    <li><strong>24-Hour Caffeine Curfew Clock:</strong> 1st-order elimination curve (5.5h) flagging active caffeine at bedtime (>25mg).</li>
+                    <li><strong>Interactive What-If Simulator:</strong> Live sliders testing habit shifts against cardio and sleep risks.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 8. KEY METRICS -->
+        <div class="box box-metrics">
+            <div class="box-title">8. Key Metrics</div>
+            <div class="box-subtitle">How we measure health & system success</div>
+            <div class="box-content">
+                <ul>
+                    <li><strong>100% Triage Sensitivity:</strong> Detection of simulated hypertensive crisis and emergency triggers.</li>
+                    <li><strong>Anxiety De-escalation Rate:</strong> $\ge 40\%$ self-reported reduction in health panic.</li>
+                    <li><strong>Pipeline Execution Latency:</strong> $< 30\text{ ms}$ complete diagnostic roundtrip.</li>
+                    <li><strong>Clinical Briefings Generated:</strong> Number of 1-page doctor visit summaries created.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3. UNIQUE VALUE PROPOSITION -->
+        <div class="box box-uvp">
+            <div class="box-title">3. Unique Value Proposition</div>
+            <div class="box-subtitle">Single, clear, compelling message of differentiation</div>
+            <div class="box-content">
+                <p style="font-size: 12px; font-weight: 700; color: #0284c7; margin-bottom: 10px;">
+                    "The first offline, zero-hallucination health intelligence platform that combines calibrated machine learning on 500,000+ CDC records, validated biophysics, and local GPU LLMs to eliminate health anxiety without cloud tracking or subscription walls."
+                </p>
+                <ul>
+                    <li><strong>Zero Hallucination:</strong> All math & ML pre-computed and locked before LLM prompt injection.</li>
+                    <li><strong>Anti-Cyberchondria:</strong> Demystifies somatic signals with cellular biology.</li>
+                    <li><strong>Doctor-Ready Output:</strong> 1-click standardized briefing for clinical visits.</li>
+                </ul>
+                <div class="sub-box">
+                    <div class="box-title">High-Level Concept</div>
+                    <p style="font-size: 11px; font-weight: 600; color: #0369a1;">"Huberman Lab meets CDC Clinical Screener, running privately on your own local GPU."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. UNFAIR ADVANTAGE -->
+        <div class="box box-advantage">
+            <div class="box-title">9. Unfair Advantage</div>
+            <div class="box-subtitle">Cannot be easily copied or bought</div>
+            <div class="box-content">
+                <ul>
+                    <li><strong>Homogeneous Biophysics + 500k CDC ML:</strong> Full convergence of Mifflin-St Jeor, caffeine pharmacokinetics, and 5 validated ML models in a unified contract.</li>
+                    <li><strong>Zero-Hallucination Architecture:</strong> Local Qwen strictly constrained as an interpreter of pre-computed truth.</li>
+                    <li><strong>100% Offline Localhost Privacy:</strong> Impossible for cloud ad-driven incumbents to replicate without dismantling their data harvesting models.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 5. CHANNELS -->
+        <div class="box box-channels">
+            <div class="box-title">5. Channels</div>
+            <div class="box-subtitle">Path to customers & community</div>
+            <div class="box-content">
+                <ul>
+                    <li><strong>Open-Source Developer Communities:</strong> GitHub, r/LocalLLaMA, r/selfhosted, Hacker News.</li>
+                    <li><strong>Health Anxiety & Wellness Forums:</strong> r/healthanxiety, r/Biohackers with educational infocards.</li>
+                    <li><strong>University Hackathons:</strong> IBM SkillsBuild and digital health symposiums.</li>
+                    <li><strong>Preventive Wellness Clinics:</strong> Direct outreach as an offline patient intake tool.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 2. CUSTOMER SEGMENTS -->
+        <div class="box box-customers">
+            <div class="box-title">2. Customer Segments</div>
+            <div class="box-subtitle">Target users & early adopters</div>
+            <div class="box-content">
+                <ul>
+                    <li><strong>Tech Professionals & Students (B2C):</strong> Heavy screen usage, bedtime doomscrolling, caffeine dependency, sleep latency, and digital burnout.</li>
+                    <li><strong>Cyberchondria Sufferers (B2C):</strong> People trapped in panic loops from alarmist online health articles.</li>
+                    <li><strong>Privacy-Conscious Individuals (B2C):</strong> Users who refuse to upload biometrics to cloud servers.</li>
+                    <li><strong>Preventive Wellness Coaches & Dietitians (B2B):</strong> Practitioners needing structured, objective baseline intake.</li>
+                </ul>
+                <div class="sub-box">
+                    <div class="box-title">Early Adopters</div>
+                    <p style="font-size: 10.5px;">Developers, gamers, and biohackers with local NVIDIA RTX / Apple Silicon GPUs who already run Ollama locally and want an offline health dashboard.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. COST STRUCTURE -->
+        <div class="box box-cost">
+            <div class="box-title">7. Cost Structure</div>
+            <div class="box-subtitle">Fixed, variable & operational expenses</div>
+            <div class="box-content">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <strong>Compute & Cloud API Cost:</strong>
+                        <p style="color: #10b981; font-weight: 700;">$0.00 / user (100% on-device GPU inference via Ollama)</p>
+                        <p>Eliminates recurring OpenAI/Anthropic API bills ($0.03-$0.10 per query).</p>
+                    </div>
+                    <div>
+                        <strong>Maintenance & Overhead:</strong>
+                        <p>• Zero cloud database hosting fees (local execution).</p>
+                        <p>• Model training on local workstation GPU (public datasets).</p>
+                        <p>• Website & documentation hosted free via GitHub Pages.</p>
+                        <p style="color: #0284c7; font-weight: 700;">Gross Margin: > 95%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. REVENUE STREAMS -->
+        <div class="box box-revenue">
+            <div class="box-title">6. Revenue Streams</div>
+            <div class="box-subtitle">Sustainable monetisation & licensing model</div>
+            <div class="box-content">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                    <div>
+                        <span class="tag">Community</span>
+                        <p><strong>Open-Core (MIT)</strong></p>
+                        <p style="font-size: 10px; color: #64748b;">100% free offline pipeline, CLI, Streamlit, and FastAPI server for developers.</p>
+                    </div>
+                    <div>
+                        <span class="tag">Consumer Pro</span>
+                        <p><strong>VitalSync Desktop ($29)</strong></p>
+                        <p style="font-size: 10px; color: #64748b;">One-time purchase desktop app (Electron/Tauri) with 1-click model installer & PDF export.</p>
+                    </div>
+                    <div>
+                        <span class="tag">B2B Clinic</span>
+                        <p><strong>Clinic Edition ($49/mo)</strong></p>
+                        <p style="font-size: 10px; color: #64748b;">Multi-client management, branded clinical PDF briefings, and longitudinal tracking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="margin-top: 16px; text-align: center; font-size: 11px; color: #64748b;">
+        VitalSync AI is aligned with <strong>United Nations SDG 3 (Target 3.4)</strong>: Non-Communicable Disease Prevention & Mental Well-being.
+    </div>
+
+</body>
+</html>
