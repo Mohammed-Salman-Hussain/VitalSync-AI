@@ -32,8 +32,8 @@ All pull requests, bug fixes, and feature additions **must strictly comply** wit
 ### 1. Clone & Environment Setup
 ```bash
 # Clone the repository
-git clone https://github.com/vitalsync-ai/vitalsync-ai.git
-cd vitalsync-ai
+git clone https://github.com/Mohammed-Salman-Hussain/VitalSync-AI.git
+cd VitalSync-AI
 
 # Create a virtual environment
 python -m venv .venv

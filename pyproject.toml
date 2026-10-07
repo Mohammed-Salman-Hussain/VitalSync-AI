@@ -57,10 +57,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/vitalsync-ai/vitalsync-ai"
-Documentation = "https://github.com/vitalsync-ai/vitalsync-ai/tree/main/docs"
-Repository = "https://github.com/vitalsync-ai/vitalsync-ai.git"
-Issues = "https://github.com/vitalsync-ai/vitalsync-ai/issues"
+Homepage = "https://github.com/Mohammed-Salman-Hussain/VitalSync-AI"
+Documentation = "https://github.com/Mohammed-Salman-Hussain/VitalSync-AI/tree/main/docs"
+Repository = "https://github.com/Mohammed-Salman-Hussain/VitalSync-AI.git"
+Issues = "https://github.com/Mohammed-Salman-Hussain/VitalSync-AI/issues"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

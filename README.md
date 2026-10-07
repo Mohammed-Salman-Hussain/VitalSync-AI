@@ -201,8 +201,8 @@ VitalSync AI adheres to a strict **100% Offline Privacy Mandate**:
 ### 2. Installation
 ```bash
 # Clone the repository
-git clone https://github.com/vitalsync-ai/vitalsync-ai.git
-cd vitalsync-ai
+git clone https://github.com/Mohammed-Salman-Hussain/VitalSync-AI.git
+cd VitalSync-AI
 
 # Create and activate virtual environment
 python -m venv .venv
@@ -333,7 +333,7 @@ If you use VitalSync AI in your academic research, epidemiological modeling, or 
   author = {VitalSync AI Platform Contributors},
   title = {VitalSync AI: A Homogeneous, Scientifically Grounded, Local-First Health & Circadian Intelligence Platform},
   year = {2026},
-  url = {https://github.com/vitalsync-ai/vitalsync-ai},
+  url = {https://github.com/Mohammed-Salman-Hussain/VitalSync-AI},
   license = {MIT}
 }
 ```
