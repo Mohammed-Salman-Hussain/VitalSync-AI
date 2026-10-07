@@ -64,6 +64,8 @@ At the top of the dashboard, you will see a prominent dynamic triage banner:
 
 ## 📊 3. Interpreting the 5 Risk Gauges
 
+![Health Dashboard Overview](../assets/dashboard_overview.png)
+
 The central scorecard displays five calibrated risk dials:
 
 1. **10-Year Cardiovascular Lifestyle Risk (CDC BRFSS Model)**:
@@ -83,6 +85,8 @@ The central scorecard displays five calibrated risk dials:
 
 ## 🍽️ 4. Precision Nutrition & Macro Plate Visualizer
 
+![Macros and Nutrition Plate](../assets/macros_nutrition.png)
+
 Navigate to the **Nutrition & Macros** tab to review:
 - **BMR & TDEE**: Your baseline resting metabolism and total daily energy expenditure.
 - **Goal-Calibrated Caloric Target**: Dynamically adjusted for your chosen goal (deficit vs. surplus).
@@ -97,13 +101,17 @@ Navigate to the **Nutrition & Macros** tab to review:
 
 ## ⏰ 5. The 24-Hour Caffeine Curfew Clock
 
+![24-Hour Caffeine Curfew Clock](../assets/caffeine_circadian.png)
+
 In the **Circadian & Sleep** tab, the platform renders your **First-Order Caffeine Decay Curve**:
 - Displays your remaining active serum caffeine at bedtime based on its $5.5\text{-hour}$ elimination half-life.
-- If active caffeine exceeds $25\,\text{mg}$ at your target bedtime, the system alerts you and calculates your exact **Recommended Caffeine Curfew** (e.g., "Cut off caffeine after 2:00 PM").
+- If active caffeine exceeds $25\,\text{mg}$ at your target bedtime, the system alerts you and calculates your exact **Recommended Caffeine Curfew** (e.g., "Cut off caffeine after 2:30 PM").
 
 ---
 
 ## 🧘 6. "Am I Okay?" 60-Second Symptom De-escalator
+
+![Am I Okay De-escalator](../assets/anxiety_deescalator.png)
 
 Experiencing a sudden, worrying sensation? Click the **"Am I Okay?"** button to deconstruct it with reassuring physiology:
 - **Post-Coffee Heart Thumping**: Explains transient caffeine-induced sympathetic tone without structural heart defect.
@@ -114,6 +122,8 @@ Experiencing a sudden, worrying sensation? Click the **"Am I Okay?"** button to 
 ---
 
 ## 🎛️ 7. Interactive "What-If" Counterfactual Simulator
+
+![What-If Simulator](../assets/what_if_simulator.png)
 
 Want to see how changes in your habits would improve your future health?
 1. Open the **"What-If" Simulator** tab.
@@ -126,6 +136,8 @@ Want to see how changes in your habits would improve your future health?
 ---
 
 ## 📄 8. Exporting the Standardized "Doctor Visit Briefing"
+
+![Doctor Briefing](../assets/doctor_briefing.png)
 
 When preparing for an appointment with your primary care physician:
 1. Click the **"Export Doctor Briefing"** button in the top navigation.

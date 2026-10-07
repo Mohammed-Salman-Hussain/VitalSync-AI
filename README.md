@@ -59,6 +59,60 @@ Rather than relying on isolated toy calculators or speculative prompts, VitalSyn
 
 ---
 
+## 📸 Interface Snapshot Gallery
+
+<div align="center">
+
+### 1. Unified Health Dashboard & Calibrated ML Risk Cluster
+<img src="assets/dashboard_overview.png" alt="Health Overview Dashboard" width="95%" />
+
+*Real-time glassmorphic scorecard displaying 5 calibrated ML risk dials, vitals, BMR/TDEE, and live 3-tier clinical safety triage banner.*
+
+<br/>
+
+<table>
+  <tr>
+    <td width="50%">
+      <h4 align="center">🥗 Precision Macronutrient Architect</h4>
+      <img src="assets/macros_nutrition.png" alt="Macros and Plate" />
+      <p align="center"><i>Dynamic caloric allocation, macro donut, and real-food equivalents.</i></p>
+    </td>
+    <td width="50%">
+      <h4 align="center">☕ 24-Hour Pharmacokinetic Caffeine Curve</h4>
+      <img src="assets/caffeine_circadian.png" alt="Caffeine Elimination Curve" />
+      <p align="center"><i>First-order caffeine clearance decay with bed disruption threshold.</i></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h4 align="center">🔮 Interactive What-If Simulator</h4>
+      <img src="assets/what_if_simulator.png" alt="What-If Simulator" />
+      <p align="center"><i>Counterfactual habit simulations with projected risk reductions.</i></p>
+    </td>
+    <td width="50%">
+      <h4 align="center">🧩 Nutrient Deficiency Detective</h4>
+      <img src="assets/nutrient_matrix.png" alt="Nutrient Matrix" />
+      <p align="center"><i>Functional medicine cofactor maps and whole-food sources.</i></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h4 align="center">🧘 "Am I Okay?" 60-Second De-escalator</h4>
+      <img src="assets/anxiety_deescalator.png" alt="Anxiety De-escalator" />
+      <p align="center"><i>Biological demystification for harmless bodily signals.</i></p>
+    </td>
+    <td width="50%">
+      <h4 align="center">📄 Standardized Doctor Visit Briefing</h4>
+      <img src="assets/doctor_briefing.png" alt="Doctor Briefing" />
+      <p align="center"><i>Print-ready clinical summary log for primary care physicians.</i></p>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+---
+
 ## 🧠 The Cyberchondria Crisis
 
 When individuals experience everyday bodily signals—such as an eyelid twitch after coffee or a normal 1.5 kg scale jump after a pasta dinner—their first reaction is often to search online. Commercial search engines rank catastrophic worst-case scenarios, sparking acute health anxiety (**cyberchondria**):

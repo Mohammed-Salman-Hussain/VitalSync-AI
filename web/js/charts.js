@@ -12,11 +12,13 @@
 function setupHighDpiCanvas(canvas) {
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
+    const width = (rect.width > 0) ? rect.width : (canvas.clientWidth || 820);
+    const height = (rect.height > 0) ? rect.height : (canvas.clientHeight || 280);
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
     const ctx = canvas.getContext('2d');
     ctx.scale(dpr, dpr);
-    return { ctx, width: rect.width, height: rect.height };
+    return { ctx, width, height };
 }
 
 // ---------------------------------------------------------------------------

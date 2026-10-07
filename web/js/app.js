@@ -57,6 +57,21 @@ function initTabs() {
             }
         });
     });
+
+    // Hash navigation support (e.g. #tab-nutrition)
+    const activateFromHash = () => {
+        if (window.location.hash) {
+            const hashTab = window.location.hash.substring(1);
+            const matchingBtn = document.querySelector(`.tab-btn[data-tab="${hashTab}"]`);
+            if (matchingBtn) {
+                matchingBtn.click();
+                setTimeout(() => window.scrollTo(0, 0), 10);
+            }
+        }
+    };
+
+    activateFromHash();
+    window.addEventListener('hashchange', activateFromHash);
 }
 
 // ---------------------------------------------------------------------------
@@ -197,8 +212,8 @@ function updateDashboardUI(payload) {
         triageText.innerHTML = `<strong>${t.badge_title}</strong>: ${t.banner_message}`;
     }
 
-    // 2. Top Metric Cards
-    document.getElementById('valBMI').innerText = `${p.bmi}`;
+    const calculatedBMI = (p.bmi !== undefined && p.bmi !== null) ? p.bmi : (p.weight_kg / Math.pow(p.height_cm / 100, 2)).toFixed(1);
+    document.getElementById('valBMI').innerText = `${calculatedBMI}`;
     document.getElementById('valBP').innerText = `${p.systolic_bp} / ${p.diastolic_bp}`;
     document.getElementById('valBPCat').innerText = m.bp_category;
     document.getElementById('valBMR').innerText = `${Math.round(m.bmr_kcal).toLocaleString()}`;
@@ -288,6 +303,16 @@ function updateDashboardUI(payload) {
 
     // 8. Doctor Briefing Preview
     generateDoctorBriefingPreview(payload);
+
+    // 9. Re-render charts for currently active tab
+    const activeTab = document.querySelector('.tab-pane.active');
+    if (activeTab) {
+        if (activeTab.id === 'tab-nutrition') {
+            drawMacroDonut(document.getElementById('canvasMacroDonut'), m.target_protein_g, m.target_fat_g, m.target_carbs_g, m.target_calories_kcal);
+        } else if (activeTab.id === 'tab-circadian') {
+            drawCaffeineCurve(document.getElementById('canvasCaffeineCurve'), p.daily_caffeine_mg, p.hours_caffeine_before_bed);
+        }
+    }
 }
 
 // ---------------------------------------------------------------------------

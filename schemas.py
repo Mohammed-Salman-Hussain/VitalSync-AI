@@ -9,7 +9,7 @@ and local Qwen LLM synthesis.
 from enum import Enum
 from typing import List, Optional, Tuple, Dict, Any
 from datetime import datetime, timezone
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, model_validator, computed_field
 
 
 class BiologicalSex(str, Enum):
@@ -119,6 +119,7 @@ class UserHealthProfile(BaseModel):
     goal_type: GoalType = Field(GoalType.MAINTENANCE_RECOMP, description="Primary body composition / health goal")
     stress_level_1_to_10: int = Field(5, ge=1, le=10, description="Subjective perceived stress rating (1-10)")
 
+    @computed_field
     @property
     def bmi(self) -> float:
         """Body Mass Index (kg/m^2)"""
