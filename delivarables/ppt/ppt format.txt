@@ -1,0 +1,14 @@
+guidelines:
+1. Title
+2. Abstract
+3. Introduction (One slide)
+4. Literature Survey of related work (at least 5-10 standard journal papers
+most relevant) compulsory in tabular format
+5. Existing System
+6. Proposed System (Specifications & Advantages)
+7. System Architecture Design (E-R Diagrams, Data Flow Diagrams)
+8. UML Diagrams (Use Case Diagrams & Sequence Diagrams)
+9. Code Snippets.
+10. Results
+11. Conclusion & Future Enhancement.
+12. References
