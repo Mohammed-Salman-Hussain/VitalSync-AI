@@ -6,7 +6,7 @@
 > ### ⚖️ STATUTORY ETHICAL DISCLAIMER & CLINICAL SCOPE
 > **THIS SOFTWARE AND ASSOCIATED DOCUMENTATION ARE DESIGNED EXCLUSIVELY FOR INFORMATIONAL, EDUCATIONAL, BEHAVIORAL, AND WELLNESS OPTIMIZATION PURPOSES.**
 >
-> **VITALSUNC AI DOES NOT PROVIDE CLINICAL DIAGNOSES, MEDICAL TREATMENT, PRESCRIPTION RECOMMENDATIONS, OR THERAPY. IT IS NOT A SUBSTITUTE FOR EVALUATION, DIAGNOSIS, OR TREATMENT BY A LICENSED HEALTHCARE PROFESSIONAL.**
+> **VITALSYNC AI DOES NOT PROVIDE CLINICAL DIAGNOSES, MEDICAL TREATMENT, PRESCRIPTION RECOMMENDATIONS, OR THERAPY. IT IS NOT A SUBSTITUTE FOR EVALUATION, DIAGNOSIS, OR TREATMENT BY A LICENSED HEALTHCARE PROFESSIONAL.**
 >
 > All machine-learning probabilities and biophysical outputs are statistical indicators and physiological approximations derived from public epidemiological cohorts and peer-reviewed literature. If an individual experiences severe, persistent symptoms or clinical red flags (such as resting blood pressure $\ge 180/120\,\text{mmHg}$, crushing substernal chest pressure, radiating arm/jaw pain, acute dyspnea, sudden focal neurological deficits, or severe psychological crises), they must immediately contact emergency medical services (911 / 112) or seek urgent emergency room care.
 
@@ -161,11 +161,11 @@ All machine learning models are serialized in [`models/`](file:///models/) and s
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                              500,000+ COHORT ML PIPELINES                              │
+│              ~499,000-ROW ML PIPELINES (models 1–2 real CDC, 3–5 simulated)            │
 ├──────────────────────────────┬────────────┬─────────────────────────────┬──────────────┤
 │ Model Pipeline               │ Cohort N   │ Algorithm                   │ Primary Metric│
 ├──────────────────────────────┼────────────┼─────────────────────────────┼──────────────┤
-│ 1. 10-Yr Cardiovascular Risk │ 319,795    │ Balanced Logistic Regression│ ROC-AUC: 0.817│
+│ 1. Heart Disease Risk        │ 319,795    │ Balanced Logistic Regression│ ROC-AUC: 0.817│
 │ 2. Pre-Diabetes Screener     │ 70,692     │ HistGradientBoostingClf     │ ROC-AUC: 0.819│
 │ 3. Circadian Latency & Debt  │ 8,500      │ Multi-Output HGBR / HGBC    │ Latency RMSE │
 │ 4. Sleep Pathology Classifier│ 374        │ Balanced Random Forest      │ F1-Score: 0.893│
@@ -173,14 +173,15 @@ All machine learning models are serialized in [`models/`](file:///models/) and s
 └──────────────────────────────┴────────────┴─────────────────────────────┴──────────────┘
 ```
 
-### 5.2 Model 1: Cardiovascular 10-Year Lifestyle Risk (CDC BRFSS 2020)
+### 5.2 Model 1: Lifestyle Heart Disease Risk (CDC BRFSS 2020)
 - **Source**: CDC Behavioral Risk Factor Surveillance System ($N = 319,795$).
+- **Target**: `HeartDisease` — whether the respondent has *ever* reported coronary heart disease or a heart attack. Because this is a cross-sectional "ever had" outcome, the model is a lifestyle-similarity screener, **not** a 10-year incidence risk score.
 - **Features ($8$)**: `BMI`, `Smoking`, `AlcoholDrinking`, `PhysicalActivity`, `SleepTime`, `DiffWalking`, `Sex`, `AgeCategory`.
 - **Pipeline Architecture**:
   - Continuous features normalized via `StandardScaler`.
   - Age categories encoded via `OneHotEncoder(drop="first")`.
   - Classifier: `LogisticRegression(class_weight="balanced", max_iter=1000, C=1.0)`.
-- **Validation**: 5-fold stratified cross-validation yields a stable **ROC-AUC of $0.817$**. Probabilities represent calibrated odds of cardiovascular events relative to baseline lifestyle markers.
+- **Validation**: Stratified 80/20 train/test split; **ROC-AUC of $0.817$** on the held-out 20%. Because training uses balanced class weights, output probabilities are relative scores rather than calibrated real-world prevalence.
 
 ### 5.3 Model 2: Non-Invasive Pre-Diabetes Screener (CDC BRFSS 50/50 Split)
 - **Source**: CDC BRFSS 2015 ($N = 70,692$ balanced cases).
@@ -190,15 +191,15 @@ All machine learning models are serialized in [`models/`](file:///models/) and s
 - **Validation**: **ROC-AUC of $0.819$**, outperforming standard uncalibrated linear screeners while operating without requiring invasive laboratory venipuncture data.
 
 ### 5.4 Model 3: Circadian Sleep Latency, Fatigue & Debt (8,500 Cohort)
-- **Source**: Bedtime Screen Time and Sleep Debt Cohort ($N = 8,500$).
+- **Source**: Kaggle "Sleep Debt & Screen Time" dataset ($N = 8,500$) — **simulated data**, so results are illustrative.
 - **Features ($7$)**: `bedtime_phone_minutes`, `primary_bedtime_app`, `screen_brightness_pct`, `blue_light_filter_active`, `caffeine_post_5pm_mg`, `physical_activity_min`, `chronotype`.
 - **Architecture**:
   1. **Sleep Latency Regressor**: Predicts sleep onset latency in minutes ($\text{RMSE} = 6.84\,\text{min}$).
   2. **Next-Day Fatigue Regressor**: Predicts subjective next-day fatigue score ($1\text{--}10$) ($\text{RMSE} = 0.72 / 10$).
   3. **Sleep Debt Categorizer**: Multi-class classifier predicting `Optimal`, `Mild`, `Moderate`, or `Severe` debt ($\text{Accuracy} = 88.4\%$).
 
-### 5.5 Model 4: Sleep Pathology & Apnea Triage (374 Clinical Records)
-- **Source**: Polysomnography and clinical lifestyle cohort ($N = 374$).
+### 5.5 Model 4: Sleep Pathology & Apnea Triage (374 Records)
+- **Source**: Kaggle "Sleep Health and Lifestyle" dataset ($N = 374$) — **synthetic**, described by its author as created for illustrative purposes. It is not polysomnography data.
 - **Target**: Multi-class classification: `None` vs. `Insomnia` vs. `Sleep Apnea`.
 - **Features ($9$)**: `Age`, `Sleep Duration`, `Quality of Sleep`, `Physical Activity Level`, `Stress Level`, `Heart Rate`, `Daily Steps`, `Systolic_BP`, `Diastolic_BP`.
 - **Pipeline Architecture**:
@@ -207,7 +208,7 @@ All machine learning models are serialized in [`models/`](file:///models/) and s
 - **Validation**: **Accuracy: $89.3\%$**, **Weighted F1-Score: $0.893$**.
 
 ### 5.6 Model 5: Digital Screen-Time Stress & Burnout (100,000 Records)
-- **Source**: Student lifestyle and mental health cohort ($N = 100,000$).
+- **Source**: Kaggle "Student Depression and Lifestyle 100k" dataset ($N = 100,000$) — **simulated data** (columns follow generated distributions), so results are illustrative.
 - **Features ($4$)**: `Sleep_Duration`, `Social_Media_Hours`, `Physical_Activity`, `Age`.
 - **Architecture**:
   1. `HistGradientBoostingRegressor` predicting subjective stress level ($1\text{--}10$) ($\text{RMSE} = 1.48 / 10$).
@@ -300,7 +301,7 @@ If the local Ollama instance is unreachable, [`llm_advisor.py`](file:///llm_advi
 
 To make preventive medicine tangible, VitalSync AI implements **Counterfactual "What-If" Analysis** in [`ml_inference.py`](file:///ml_inference.py). When a user modifies an input variable via real-time sliders:
 - Cutting bedtime phone usage from $60\,\text{min}$ to $15\,\text{min}$ recalculates sleep latency (dropping from $42\,\text{min}$ to $18\,\text{min}$) and predicted fatigue.
-- Increasing daily steps from $4,000$ to $10,000$ recalculates 10-year cardiovascular lifestyle risk and TDEE.
+- Increasing daily steps from $4,000$ to $10,000$ recalculates lifestyle heart disease risk and TDEE.
 - The web interface visualizes these shifts instantaneously via SVG radial gauges.
 
 ---
@@ -325,9 +326,9 @@ A single click generates a standardized, clinical Markdown document summarizing 
 
 ### 11.1 Automated Test Suite
 VitalSync AI maintains 24 comprehensive unit and integration tests across three test suites in [`tests/`](file:///tests/):
-- **`test_phase1.py`** (17 tests): Validates Mifflin-St Jeor, Katch-McArdle, TDEE, macro budgeting, 1st-order caffeine clearance at $0, 5.5, 11, 16.5\,\text{h}$, glycogen-water bounds, and deficiency lookups.
-- **`test_phase2.py`** (2 tests): Validates model bundle loading, feature dimensions, prediction outputs, and counterfactual simulation logic.
-- **`test_phase3_4.py`** (5 tests): Validates AHA blood pressure staging, red-flag emergency overrides, orchestrator payload assembly, and doctor briefing generation.
+- **`test_phase1.py`** (17 tests): Validates Mifflin-St Jeor, Katch-McArdle, TDEE, macro budgeting, 1st-order caffeine clearance at $0, 5.5, 11, 16.5\,\text{h}$, AHA blood pressure staging (7 cases), glycogen-water bounds, and deficiency lookups.
+- **`test_phase2.py`** (2 tests): Validates that all model bundles exist, prediction outputs stay within valid ranges, and counterfactual simulation logic.
+- **`test_phase3_4.py`** (5 tests): Validates Green/Yellow/Red triage through the orchestrator (including the emergency override), doctor briefing generation, and Qwen prompt construction.
 
 ```
 ============================= test session starts =============================

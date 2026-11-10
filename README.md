@@ -12,7 +12,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](file:///LICENSE)
 [![UN SDG 3](https://img.shields.io/badge/UN%20SDG%203-Good%20Health%20%26%20Well--being-4C9F38.svg)](https://sdgs.un.org/goals/goal3)
 
-*Eliminating health anxiety (cyberchondria) through validated biophysics, calibrated machine learning on 500,000+ CDC records, deterministic 3-tier clinical triage, and local GPU LLM synthesis with zero cloud telemetry.*
+*Eliminating health anxiety (cyberchondria) through validated biophysics, machine learning on ~390,000 real CDC survey records plus three simulated Kaggle datasets, deterministic 3-tier clinical triage, and local GPU LLM synthesis with zero cloud telemetry.*
 
 [Key Features](#-key-features) • [System Architecture](#-system-architecture) • [Machine Learning Models](#-machine-learning-models--validation) • [Quickstart Guide](#-quickstart-guide) • [API Reference](#-rest-api-overview) • [Full Documentation](#-comprehensive-documentation-suite)
 
@@ -21,7 +21,7 @@
 ---
 
 > ### ⚖️ STATUTORY ETHICAL DISCLAIMER & MEDICAL SCOPE
-> **VITALSUNC AI PROVIDES LIFESTYLE, BEHAVIORAL, AND WELLNESS OPTIMIZATION ANALYSIS DESIGNED TO REDUCE EVERYDAY HEALTH ANXIETY. IT DOES NOT PROVIDE MEDICAL DIAGNOSES, CLINICAL TREATMENT, PRESCRIPTION RECOMMENDATIONS, OR THERAPY.**
+> **VITALSYNC AI PROVIDES LIFESTYLE, BEHAVIORAL, AND WELLNESS OPTIMIZATION ANALYSIS DESIGNED TO REDUCE EVERYDAY HEALTH ANXIETY. IT DOES NOT PROVIDE MEDICAL DIAGNOSES, CLINICAL TREATMENT, PRESCRIPTION RECOMMENDATIONS, OR THERAPY.**
 >
 > All machine-learning risk percentages and nutritional indices are statistical indicators based on epidemiological cohorts. They are not a substitute for clinical judgment by a licensed medical professional. If you experience severe, persistent symptoms or acute emergency signs (e.g., blood pressure $\ge 180/120\,\text{mmHg}$, crushing chest pressure, shortness of breath, sudden numbness or speech difficulty), call emergency services (911 / 112) or seek urgent emergency room care immediately.
 
@@ -51,7 +51,7 @@
 Rather than relying on isolated toy calculators or speculative prompts, VitalSync AI operates on a single, homogeneous data contract (`UserHealthProfile`) orchestrated through a multi-stage clinical intelligence pipeline:
 
 1. **Deterministic Biophysical Engine**: Mifflin-St Jeor & Katch-McArdle BMR, dynamic macronutrient partitioning, 1st-order caffeine elimination pharmacokinetics ($t_{1/2} = 5.5\text{h}$), and fluid/glycogen mass variance equations.
-2. **Supervised Epidemiological Ensembles**: 5 machine learning pipelines trained on over **500,000+ authentic public health records** (CDC BRFSS Heart Disease, BRFSS Diabetes 50/50, Sleep Health & Apnea, Kaggle Bedtime Screentime, and Student Lifestyle cohorts).
+2. **Supervised Epidemiological Ensembles**: 5 machine learning pipelines trained on ~499,000 rows in total: two real CDC BRFSS survey datasets (Heart Disease 2020, Diabetes 50/50) and three simulated Kaggle datasets (Sleep Health & Lifestyle, Bedtime Screentime, Student Lifestyle) — see [Data Sources & Limitations](datasets/README.md).
 3. **Functional Micronutrient Knowledge Graph**: A bidirectional knowledge matrix connecting everyday subjective symptoms to nutritional cofactors, bioavailable whole-food sources, and absorption inhibitors.
 4. **Three-Tier Clinical Safety Guardrails**: Deterministic AHA/ACC blood pressure classification and red-flag emergency overrides (`Level 1 Green`, `Level 2 Yellow`, `Level 3 Red Emergency Override`).
 5. **100% Local GPU LLM Synthesis**: Local Python ML combined with local Qwen via Ollama on GPU (`http://localhost:11434`). The LLM acts purely as an empathetic translator of verified, pre-computed JSON diagnostic payloads—zero numbers are hallucinated, and zero data leaves your machine.
@@ -119,7 +119,7 @@ When individuals experience everyday bodily signals—such as an eyelid twitch a
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│ TRADITIONAL ONLINE HEALTH SEARCH                       VITALSUNC AI DE-ESCALATION       │
+│ TRADITIONAL ONLINE HEALTH SEARCH                       VITALSYNC AI DE-ESCALATION       │
 ├───────────────────────────────────────────────────────┬────────────────────────────────┤
 │ ❌ Eyelid twitch ➔ Motor Neuron Disease / ALS         │ ✅ Benign neuromuscular twitch  │
 │ ❌ Scale +1.5kg ➔ Rapid fat gain                      │ ✅ Glycogen-water mass balance │
@@ -197,15 +197,17 @@ flowchart TD
 
 ## 🤖 Machine Learning Models & Validation
 
-VitalSync AI integrates **5 independent machine learning pipelines** trained on authentic public health datasets:
+VitalSync AI integrates **5 independent machine learning pipelines**. Models 1–2 use real CDC survey data; models 3–5 use simulated Kaggle datasets, so treat their outputs as illustrative:
 
 | Model Pipeline | Dataset Source | Training Cohort | Architecture | Primary Metric |
 | :--- | :--- | :--- | :--- | :--- |
-| **1. 10-Yr Cardiovascular Risk** | CDC BRFSS 2020 (`heart_2020_cleaned.csv`) | **319,795 rows** | Balanced Logistic Regression | **ROC-AUC: 0.817** |
+| **1. Heart Disease Risk** | CDC BRFSS 2020 (`heart_2020_cleaned.csv`) | **319,795 rows** | Balanced Logistic Regression | **ROC-AUC: 0.817** |
 | **2. Pre-Diabetes Screener** | CDC BRFSS 2015 50/50 (`diabetes_binary_5050split.csv`) | **70,692 rows** | HistGradientBoostingClassifier | **ROC-AUC: 0.819** |
-| **3. Circadian Sleep Latency & Debt** | Bedtime Screen Time Cohort (`bedtime_screentime.csv`) | **8,500 rows** | Multi-Output Regressor / Classifier | **Latency RMSE: 6.84m** |
-| **4. Sleep Pathology & Apnea Triage** | Clinical Polysomnography (`Sleep_health.csv`) | **374 clinical records** | Balanced Random Forest | **Weighted F1: 0.893** |
-| **5. Digital Stress & Screen Burnout** | Student Lifestyle Cohort (`student_lifestyle.csv`) | **100,000 rows** | HistGradientBoosting Reg / Clf | **Stress RMSE: 1.48 / 10** |
+| **3. Circadian Sleep Latency & Debt** | Bedtime Screen Time (simulated, `bedtime_screentime_sleep_debt.csv`) | **8,500 rows** | Multi-Output Regressor / Classifier | **Latency RMSE: 6.84m** |
+| **4. Sleep Pathology & Apnea Triage** | Sleep Health & Lifestyle (simulated, `Sleep_health_and_lifestyle_dataset.csv`) | **374 rows** | Balanced Random Forest | **Weighted F1: 0.893** |
+| **5. Digital Stress & Screen Burnout** | Student Lifestyle (simulated, `student_lifestyle_100k.csv`) | **100,000 rows** | HistGradientBoosting Reg / Clf | **Stress RMSE: 1.48 / 10** |
+
+*Note: model 1 is trained on BRFSS "has ever had heart disease" answers, so it estimates how similar your lifestyle profile is to people reporting heart disease — not a clinical 10-year event risk.*
 
 *All serialized model bundles are lightweight (~3.5 MB total) and tracked in [`models/`](file:///models/) for instant out-of-the-box execution.*
 

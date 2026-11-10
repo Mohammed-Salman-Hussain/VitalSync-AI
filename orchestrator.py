@@ -85,7 +85,7 @@ class HealthOrchestrator:
             f"- **Sleep Pathology Screen:** {ml.sleep_apnea_probability_pct}% Apnea Risk (Snoring: {'Yes' if p.snoring_frequent else 'No'}, Gasping: {'Yes' if p.gasping_choking_nocturnal else 'No'})",
             "",
             "### 3. Epidemiological Risk Screeners (CDC BRFSS Models)",
-            f"- **10-Year Cardiovascular Lifestyle Risk:** {ml.cardiovascular_10yr_risk_pct}%",
+            f"- **Lifestyle Heart Disease Risk:** {ml.cardiovascular_10yr_risk_pct}%",
             f"- **Pre-Diabetes Non-Invasive Risk:** {ml.prediabetes_risk_pct}%",
             "",
             "### 4. Active Patient-Reported Symptoms",

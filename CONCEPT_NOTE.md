@@ -69,7 +69,7 @@ Generic conversational chatbots (ChatGPT, Claude) are frequently asked for healt
            ┌─────────────────────────────┼─────────────────────────────┐
            ▼                             ▼                             ▼
   [ Scientific Calculators ]     [ Pre-Trained ML Ensembles ]    [ Functional Matrices ]
-  • BMR & TDEE (Mifflin)         • 10-Yr Cardio Risk (CDC 319k)  • Symptom ⟷ Deficiency
+  • BMR & TDEE (Mifflin)         • Heart Disease Risk (CDC 319k)  • Symptom ⟷ Deficiency
   • Dynamic Macro Allocator      • Pre-Diabetes Screener (70k)   • Food & Cofactor Map
   • Caffeine 5.5h Half-Life      • Circadian Sleep Debt (8.5k)   • Water & Electrolytes
   • Caloric Deficit Forecaster   • Sleep Apnea Triage (374)
@@ -102,7 +102,7 @@ Generic conversational chatbots (ChatGPT, Claude) are frequently asked for healt
    - First-order caffeine pharmacokinetics: $C(t) = C_0 \cdot (0.5)^{t / 5.5}$, calculating active caffeine at bedtime and alerting if $>25\,\text{mg}$.
    - Glycogen-water mass balance: Explaining why $1\text{--}2.5\,\text{kg}$ overnight scale jumps are intracellular water ($3\text{--}4\,\text{g}$ water per gram of glycogen) plus sodium retention, not fat.
 2. **Supervised Machine Learning Ensembles** ([ml_inference.py](file:///c:/Users/salman/Desktop/p2/ml_inference.py)):
-   - **Cardiovascular 10-Year Lifestyle Risk**: Trained on 319,795 CDC BRFSS records (Balanced Logistic Regression, ROC-AUC: 0.817).
+   - **Lifestyle Heart Disease Risk**: Trained on 319,795 CDC BRFSS records (Balanced Logistic Regression, ROC-AUC: 0.817).
    - **Pre-Diabetes Non-Invasive Screener**: Trained on 70,692 CDC BRFSS records (HistGradientBoosting, ROC-AUC: 0.819).
    - **Circadian Sleep Debt & Latency Model**: Trained on 8,500 records (Multi-output regressor, Latency RMSE: 6.84m).
    - **Clinical Sleep Apnea Triage**: Trained on 374 clinical polysomnography records (Random Forest, Weighted F1: 0.893).

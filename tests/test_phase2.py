@@ -60,7 +60,7 @@ def test_models_exist_on_disk():
         "digital_burnout_model.joblib"
     ]
     for model_file in expected_models:
-        path = os.path.join("models", model_file)
+        path = os.path.join(os.path.dirname(__file__), "..", "models", model_file)
         assert os.path.exists(path), f"Missing model bundle: {path}"
 
 

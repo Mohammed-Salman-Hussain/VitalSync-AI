@@ -1,42 +1,56 @@
-# Datasets Provenance & Public Health Benchmarks
+# Datasets: Sources, Usage & Limitations
 
-VitalSync AI adheres strictly to **Rule 2: Zero-Hallucination & Rigorous Scientific Validation**. All statistical risks, machine learning ensembles, and circadian equations are trained and calibrated on authentic public health datasets comprising over **500,000+ real-world clinical and epidemiological records**.
-
----
-
-## 📊 Summary of Public Health Datasets
-
-| Dataset | Primary Source | Records | Target Variables / Features | Role in VitalSync AI |
-| :--- | :--- | :--- | :--- | :--- |
-| **Personal Key Indicators of Heart Disease** | CDC Behavioral Risk Factor Surveillance System (BRFSS 2020) | 319,795 | Heart Disease (Yes/No), BMI, Smoking, Alcohol, Walking Difficulty, Age | 10-Year Cardiovascular Lifestyle Risk Ensemble |
-| **Diabetes Health Indicators** | CDC BRFSS 2015 (50/50 Balanced Split) | 70,692 | Diabetes_binary, HighBP, HighChol, BMI, Smoker, PhysActivity, Diet | Non-Invasive Pre-Diabetes Risk Screener |
-| **Circadian Sleep Debt & Late-Night Phone Habits** | Kaggle Sleep Latency & Bedtime Habits Cohort | 8,500 | Sleep Latency, Screen Brightness, Blue Light Filter, Bedtime App, Fatigue | Multi-Output Regressor for Sleep Latency & Sleep Debt Tier |
-| **Sleep Health & Lifestyle Clinical Dataset** | Clinical Polysomnography & Lifestyle Cohort | 374 | Sleep Disorder (None, Insomnia, Sleep Apnea), Systolic/Diastolic BP, Heart Rate | Sleep Pathology & Apnea Triage Classifier |
-| **Student Lifestyle & Depression Survey** | 100k Mental Health & Behavioral Dataset | 100,000 | Stress Level (1-10), Depression Risk, Social Media Hours, Sleep Duration | Digital Screen-Time Stress & Burnout Regressor |
-| **Obesity Levels Estimation** | Eating Habits & Physical Condition Dataset | 2,111 | Weight Category, Fast Food, Technology Use, Hydration | Sedentary Habit & Weight Classification |
+VitalSync AI's five machine learning models are trained on public datasets totalling ~499,000 rows. Two are real CDC survey datasets (~390,000 rows). The other three are **simulated** datasets published on Kaggle, so the models built on them should be treated as illustrative, not clinically validated.
 
 ---
 
-## 📥 Dataset Acquisition & Retraining
+## 📊 Datasets used for training
 
-To minimize repository bloat and ensure fast git clones, large raw CSV datasets (>5MB) are not tracked in git. The serialized machine learning bundles in [`models/`](file:///models/) are lightweight (~3.5 MB total) and included directly in the repository for immediate out-of-the-box execution.
+| Dataset | Source | Real or simulated | Records | Target | Used by |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `heart_2020_cleaned.csv` — Personal Key Indicators of Heart Disease | CDC BRFSS 2020 (Kaggle: kamilpytlak) | **Real survey** | 319,795 | `HeartDisease` = respondent has *ever* reported coronary heart disease / heart attack | Lifestyle Heart Disease Risk model |
+| `diabetes_binary_5050split_health_indicators_BRFSS2015.csv` | CDC BRFSS 2015 (Kaggle: alexteboul) | **Real survey** (rebalanced 50/50) | 70,692 | `Diabetes_binary` (pre-diabetes or diabetes) | Pre-Diabetes Screener |
+| `bedtime_screentime_sleep_debt.csv` | Kaggle: samartalwar | **Simulated** | 8,500 | Sleep latency, next-day fatigue, sleep-debt category | Circadian Sleep model |
+| `Sleep_health_and_lifestyle_dataset.csv` | Kaggle: uom190346a | **Simulated** (the author describes it as "synthetic and created … for illustrative purposes") | 374 | `Sleep Disorder` (None / Insomnia / Sleep Apnea) | Sleep Pathology model |
+| `student_lifestyle_100k.csv` | Kaggle: aldinwhyudii | **Simulated** (columns follow neat generated distributions, e.g. sleep exactly mean 7.0 / SD 1.5) | 100,000 | `Stress_Level`, `Depression` | Digital Burnout model |
 
-If you wish to download the raw datasets and retrain the machine learning ensembles from scratch:
+### Important limitations
+- **Heart disease model is not a 10-year risk score.** BRFSS asks whether someone has *ever* been told they have heart disease, so the model estimates how closely a lifestyle profile resembles people who report heart disease. It is labelled "Lifestyle Heart Disease Risk" in the app for this reason. (The JSON field is still named `cardiovascular_10yr_risk_pct` for backward compatibility.)
+- **Simulated datasets:** models 3–5 learn the rules used to generate their data, not real human outcomes. Their numbers are useful for demonstrating the pipeline, not for health decisions.
+- **Proxy inputs:** some model features are approximated from app inputs (e.g. `HighChol` ← 4+ fast-food meals/week, `GenHlth` ← symptom count and stress). See `ml_inference.py`.
+
+---
+
+## 🗂️ Datasets downloaded but not used
+
+These files are in `datasets/` (git-ignored) from early exploration, but no model is trained on them. They can be deleted safely, or used for future work:
+
+| File / folder | Notes |
+| :--- | :--- |
+| `ObesityDataSet_raw_and_data_sinthetic.csv` | Obesity levels (Kaggle: fatemehmehrparvar), 2,111 rows, partly synthetic |
+| `fitbit/` (18 CSVs, ~350 MB) | Fitbit tracker export (Kaggle: arashnic/fitbit) — candidate for future wearable integration |
+| `cardio_train.csv` | Cardiovascular disease dataset |
+| `CVD_cleaned.csv` | Cardiovascular disease risk dataset |
+| `healthcare-dataset-stroke-data.csv` | Stroke prediction dataset |
+| `diabetes_012_health_indicators_BRFSS2015.csv`, `diabetes_binary_health_indicators_BRFSS2015.csv` | Other versions of the BRFSS diabetes data (only the 50/50 split is used) |
+
+The `bedtime_screentime_sleep_debt.csv` in the repository root is a duplicate left over from `download_and_inspect.py`; the copy in `datasets/` is the one used.
+
+---
+
+## 📥 Downloading & retraining
+
+Large CSVs are not tracked in git. The trained model bundles in [`models/`](../models/) (~3.5 MB) are included so the app works out of the box.
 
 ```bash
-# 1. Ensure dependencies are installed
 pip install -r requirements.txt
-
-# 2. Download all raw datasets via kagglehub
-python scripts/download_datasets.py
-
-# 3. Retrain all 5 models and update models/ directory
-python train_models.py
+python scripts/download_datasets.py   # downloads the Kaggle datasets via kagglehub
+python train_models.py                # retrains all 5 models into models/
 ```
 
 ---
 
-## 📜 Ethical Data Usage & Attribution
-- **CDC BRFSS Data**: Public domain health surveillance data provided by the United States Centers for Disease Control and Prevention.
-- **Sleep & Mental Health Datasets**: Published on Kaggle under open research licenses (CC BY-SA 4.0, Open Data Commons).
-- VitalSync AI strictly preserves anonymization. No Personally Identifiable Information (PII) is included in any dataset or generated model artifact.
+## 📜 Licences & attribution
+- **CDC BRFSS data**: public-domain US government survey data.
+- **Kaggle datasets**: published under their respective open licences (see each Kaggle page).
+- No personally identifiable information is included in any dataset or model file.

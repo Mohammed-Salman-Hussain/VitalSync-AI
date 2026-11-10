@@ -50,7 +50,7 @@ Generic conversational AI chatbots frequently fabricate physiological metrics, g
 ## 💡 The VitalSync AI Solution: 6 Pillars of Innovation
 
 ```
-                     TRADITIONAL SEARCH / APPS                     VITALSUNC AI PLATFORM
+                     TRADITIONAL SEARCH / APPS                     VITALSYNC AI PLATFORM
        ┌─────────────────────────────────────────────────┐   ┌─────────────────────────────────────────────────┐
        │ • Alarmist disease lists (triggers anxiety)    │   │ • Physiological demystification (anti-anxiety) │
        │ • Disconnected, siloed calculators              │   │ • Homogeneous, single-payload orchestration    │

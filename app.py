@@ -285,7 +285,7 @@ with tabs[0]:
 
     col_m1, col_m2, col_m3, col_m4 = st.columns(4)
     with col_m1:
-        st.markdown("**10-Year Cardiovascular Risk**")
+        st.markdown("**Heart Disease Risk**")
         st.metric("Cardio Odds", f"{ml_m.cardiovascular_10yr_risk_pct}%", "Trained on CDC 319k")
         st.progress(min(ml_m.cardiovascular_10yr_risk_pct / 100.0, 1.0))
         st.caption("CDC BRFSS epidemiological logistic regression pipeline.")
@@ -304,7 +304,7 @@ with tabs[0]:
 
     with col_m4:
         st.markdown("**Sleep Apnea Triage**")
-        st.metric("Apnea Probability", f"{ml_m.sleep_apnea_probability_pct}%", "Clinical Cohort")
+        st.metric("Apnea Probability", f"{ml_m.sleep_apnea_probability_pct}%", "Simulated dataset")
         st.metric("Digital Burnout Index", f"{ml_m.digital_burnout_stress_score_1_to_10} / 10", "100k Student Data")
         st.caption("Random Forest classifier on clinical vitals.")
 
@@ -449,12 +449,11 @@ with tabs[6]:
     if st.button("Generate Full Consultation Report with Local Qwen", type="primary"):
         with st.spinner("Local Qwen (qwen3.5:0.8b on GPU) is analyzing your multi-model metrics..."):
             report_placeholder = st.empty()
-            
-            def stream_updater(chunk):
-                pass  # Streamlit update
-                
-            report = advisor.generate_consultation(payload)
+            # generate_consultation returns (report_text, mode)
+            report, mode = advisor.generate_consultation(payload)
             report_placeholder.markdown(report)
+            if mode != "qwen_gpu":
+                st.caption("Ollama is not reachable, so this is the built-in offline summary.")
 
     st.write("---")
     st.markdown("#### Ask Dr. Qwen a Specific Everyday Health Query")

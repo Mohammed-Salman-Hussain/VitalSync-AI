@@ -68,7 +68,7 @@ At the top of the dashboard, you will see a prominent dynamic triage banner:
 
 The central scorecard displays five calibrated risk dials:
 
-1. **10-Year Cardiovascular Lifestyle Risk (CDC BRFSS Model)**:
+1. **Lifestyle Heart Disease Risk (CDC BRFSS Model)**:
    - Evaluates your risk based on 319,795 CDC records.
    - Shows your statistical risk relative to individuals of your demographic and habit profile.
 2. **Pre-Diabetes Non-Invasive Risk (CDC BRFSS 50/50 Model)**:
@@ -131,7 +131,7 @@ Want to see how changes in your habits would improve your future health?
    - *Reduce bedtime phone usage by 30 minutes.*
    - *Increase daily step count to 10,000 steps.*
    - *Add 1 hour to nightly sleep.*
-3. Watch the risk dials shift in real time! Observe your predicted sleep latency drop from 38 minutes to 16 minutes and your 10-year cardio risk decline.
+3. Watch the risk dials shift in real time! Observe your predicted sleep latency drop from 38 minutes to 16 minutes and your heart disease risk decline.
 
 ---
 

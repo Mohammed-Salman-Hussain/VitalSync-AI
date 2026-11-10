@@ -250,7 +250,7 @@ resp = requests.post(f"{BASE_URL}/api/analyze", json=profile)
 diagnostic_payload = resp.json()
 
 print(f"BMR: {diagnostic_payload['math_metrics']['bmr_kcal']} kcal")
-print(f"Cardio 10-Yr Risk: {diagnostic_payload['ml_metrics']['cardiovascular_10yr_risk_pct']}%")
+print(f"Heart Disease Risk: {diagnostic_payload['ml_metrics']['cardiovascular_10yr_risk_pct']}%")
 print(f"Triage Level: {diagnostic_payload['triage']['level']}")
 
 # 2. Generate Doctor Briefing

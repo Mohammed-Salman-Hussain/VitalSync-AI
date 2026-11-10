@@ -57,6 +57,17 @@
                 </div>
             </div>
 
+            <!-- Preset Clinical Personas for 1-Click College Presentation -->
+            <div class="persona-box">
+                <span class="persona-label">⚡ 1-Click Patient Personas (Demo Mode)</span>
+                <div class="persona-grid">
+                    <button type="button" class="persona-btn active" data-persona="student" title="CS Student with bedtime TikTok, caffeine post-5pm, and eyelid twitches">🎓 CS Student</button>
+                    <button type="button" class="persona-btn crisis-btn" data-persona="crisis" title="Stage 2 Hypertensive Emergency (Triggers Level 3 Red Lockout!)">🚨 Red Emergency</button>
+                    <button type="button" class="persona-btn" data-persona="worker" title="Sedentary desk worker with pre-diabetes and elevated BP">💼 Pre-Diabetes</button>
+                    <button type="button" class="persona-btn" data-persona="athlete" title="Athletic recomp with low body fat (Activates Katch-McArdle BMR)">🏃 Athlete Recomp</button>
+                </div>
+            </div>
+
             <form id="healthForm">
                 <!-- 1. Vitals & Body -->
                 <div class="form-section">
@@ -64,7 +75,7 @@
                     <div class="input-row">
                         <div class="input-group">
                             <label>Age</label>
-                            <input type="number" id="inputAge" value="32" min="18" max="95">
+                            <input type="number" id="inputAge" value="21" min="18" max="95">
                         </div>
                         <div class="input-group">
                             <label>Sex</label>
@@ -78,18 +89,18 @@
                     <div class="input-row">
                         <div class="input-group">
                             <label>Weight (kg)</label>
-                            <input type="number" id="inputWeight" value="78" min="35" max="220" step="0.5">
+                            <input type="number" id="inputWeight" value="74" min="35" max="220" step="0.5">
                         </div>
                         <div class="input-group">
                             <label>Height (cm)</label>
-                            <input type="number" id="inputHeight" value="178" min="120" max="230">
+                            <input type="number" id="inputHeight" value="176" min="120" max="230">
                         </div>
                     </div>
 
                     <div class="input-row">
                         <div class="input-group">
                             <label>Systolic BP</label>
-                            <input type="number" id="inputSysBP" value="124" min="80" max="230">
+                            <input type="number" id="inputSysBP" value="122" min="80" max="230">
                         </div>
                         <div class="input-group">
                             <label>Diastolic BP</label>
@@ -98,8 +109,59 @@
                     </div>
 
                     <div class="input-group">
-                        <label>Resting HR (BPM): <span id="valHR" class="input-val-tag">68 BPM</span></label>
-                        <input type="range" id="inputHR" value="68" min="40" max="130">
+                        <label>Resting HR (BPM): <span id="valHR" class="input-val-tag">72 BPM</span></label>
+                        <input type="range" id="inputHR" value="72" min="40" max="130">
+                    </div>
+                </div>
+
+                <!-- Deep Intake Section (Toggled via Quick vs Deep) -->
+                <div id="deepIntakeSection" class="deep-intake-section" style="display:none;">
+                    <div class="deep-intake-banner">
+                        <span>🔬 Clinical & Nutritional Deep Dive</span>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Waist (cm)</label>
+                            <input type="number" id="inputWaist" placeholder="e.g. 84" min="40" max="180">
+                        </div>
+                        <div class="input-group">
+                            <label>Body Fat % (Katch BMR)</label>
+                            <input type="number" id="inputBodyFat" placeholder="e.g. 15.0" min="4" max="60" step="0.5">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Daily Water (L): <span id="valWater" class="input-val-tag">2.0 L</span></label>
+                            <input type="range" id="inputWater" value="2.0" min="0.5" max="6.0" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label>Fruit/Veg Servings</label>
+                            <input type="number" id="inputProduce" value="2" min="0" max="14">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Fast Food Meals / wk</label>
+                            <input type="number" id="inputFastFood" value="3" min="0" max="21">
+                        </div>
+                        <div class="input-group">
+                            <label>Alcohol Drinks / wk</label>
+                            <input type="number" id="inputAlcohol" value="2" min="0" max="40">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Resistance Days / wk</label>
+                            <input type="number" id="inputResistance" value="2" min="0" max="7">
+                        </div>
+                        <div class="input-group">
+                            <label>Cardio Days / wk</label>
+                            <input type="number" id="inputCardio" value="1" min="0" max="14">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Stress Level (1-10): <span id="valStress" class="input-val-tag">6 / 10</span></label>
+                        <input type="range" id="inputStress" value="6" min="1" max="10">
                     </div>
                 </div>
 
@@ -107,12 +169,12 @@
                 <div class="form-section">
                     <span class="section-label">2. Sleep & Bedtime Screens</span>
                     <div class="input-group">
-                        <label>Actual Sleep Duration: <span id="valSleep" class="input-val-tag">6.5 hrs</span></label>
-                        <input type="range" id="inputSleep" value="6.5" min="3.0" max="11.0" step="0.5">
+                        <label>Actual Sleep Duration: <span id="valSleep" class="input-val-tag">5.5 hrs</span></label>
+                        <input type="range" id="inputSleep" value="5.5" min="3.0" max="11.0" step="0.5">
                     </div>
                     <div class="input-group">
-                        <label>Bedtime Phone Use: <span id="valPhone" class="input-val-tag">45 min</span></label>
-                        <input type="range" id="inputPhone" value="45" min="0" max="180" step="5">
+                        <label>Bedtime Phone Use: <span id="valPhone" class="input-val-tag">75 min</span></label>
+                        <input type="range" id="inputPhone" value="75" min="0" max="180" step="5">
                     </div>
                     <div class="input-group">
                         <label>Primary Bedtime App</label>
@@ -137,16 +199,16 @@
                 <div class="form-section">
                     <span class="section-label">3. Nutrition, Stimulants & Goals</span>
                     <div class="input-group">
-                        <label>Daily Caffeine: <span id="valCaffeine" class="input-val-tag">200 mg</span></label>
-                        <input type="range" id="inputCaffeine" value="200" min="0" max="700" step="25">
+                        <label>Daily Caffeine: <span id="valCaffeine" class="input-val-tag">280 mg</span></label>
+                        <input type="range" id="inputCaffeine" value="280" min="0" max="700" step="25">
                     </div>
                     <div class="input-group">
-                        <label>Hours Last Coffee to Bed: <span id="valCaffHours" class="input-val-tag">5.0 hrs</span></label>
-                        <input type="range" id="inputCaffHours" value="5.0" min="0.0" max="14.0" step="0.5">
+                        <label>Hours Last Coffee to Bed: <span id="valCaffHours" class="input-val-tag">4.0 hrs</span></label>
+                        <input type="range" id="inputCaffHours" value="4.0" min="0.0" max="14.0" step="0.5">
                     </div>
                     <div class="input-group">
-                        <label>Daily Steps: <span id="valSteps" class="input-val-tag">7,500</span></label>
-                        <input type="range" id="inputSteps" value="7500" min="1000" max="22000" step="500">
+                        <label>Daily Steps: <span id="valSteps" class="input-val-tag">5,500</span></label>
+                        <input type="range" id="inputSteps" value="5500" min="1000" max="22000" step="500">
                     </div>
                     <div class="input-group">
                         <label>Primary Transformation Goal</label>
@@ -172,6 +234,7 @@
                         <span class="symptom-pill" data-code="bloating">Post-Meal Bloating</span>
                         <span class="symptom-pill" data-code="brittle_nails">Brittle Nails</span>
                         <span class="symptom-pill" data-code="difficulty_switching_off_brain">Racing Thoughts at Night</span>
+                        <span class="symptom-pill" data-code="chest_pain_radiating" style="display:none;" id="pillChestEmergency">Chest Pain (Emergency)</span>
                     </div>
                 </div>
 
@@ -182,7 +245,7 @@
         </aside>
 
         <!-- Right Column: Interactive Dashboard & Navigation -->
-        <main class="dashboard-main" style="display:flex; flex-direction:column; gap:20px;">
+        <main class="dashboard-main">
             <!-- Tab Navigation Bar -->
             <nav class="tab-navigation">
                 <button class="tab-btn active" data-tab="tab-overview">📊 Health Overview</button>
@@ -193,6 +256,7 @@
                 <button class="tab-btn" data-tab="tab-anxiety">🧘 "Am I Okay?"</button>
                 <button class="tab-btn" data-tab="tab-qwen">🩺 Dr. Qwen AI</button>
                 <button class="tab-btn" data-tab="tab-export">📄 Doctor Export</button>
+                <button class="tab-btn" data-tab="tab-benchmarks">🔬 ML Benchmarks</button>
             </nav>
 
             <!-- TAB 1: OVERVIEW & GAUGES -->
@@ -200,22 +264,22 @@
                 <!-- Top Key Metrics Cards -->
                 <div class="card-grid">
                     <div class="metric-card">
-                        <div class="metric-title">Body Mass Index (BMI) <span>📏</span></div>
+                        <div class="metric-title">Body Mass Index (BMI) <span class="info-chip" title="Body Mass Index (kg/m²). Clinical epidemiological weight-to-height ratio.">i</span> <span>📏</span></div>
                         <div class="metric-value" id="valBMI">24.6</div>
                         <div class="metric-sub">Healthy Range: 18.5 - 24.9</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-title">Resting Blood Pressure <span>🩺</span></div>
+                        <div class="metric-title">Resting Blood Pressure <span class="info-chip" title="AHA/ACC 2017 Staging: Normal (<120/<80), Elevated (120-129/<80), Stage 1 (130-139/80-89), Stage 2 (140+/90+), Crisis (>=180/120).">i</span> <span>🩺</span></div>
                         <div class="metric-value" id="valBP">124 / 78</div>
                         <div class="metric-sub" id="valBPCat">Elevated (120-129 / <80)</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-title">BMR (Basal Burn) <span>🔥</span></div>
+                        <div class="metric-title">BMR (Basal Burn) <span class="info-chip" title="Basal Metabolic Rate: Clinical Mifflin-St Jeor formula (1990) or Katch-McArdle lean mass formula if body fat is supplied.">i</span> <span>🔥</span></div>
                         <div class="metric-value" id="valBMR">1,780</div>
                         <div class="metric-sub" id="valBMRFormula">Mifflin-St Jeor</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-title">TDEE (Daily Caloric Burn) <span>⚡</span></div>
+                        <div class="metric-title">TDEE (Daily Caloric Burn) <span class="info-chip" title="Total Daily Energy Expenditure: Basal metabolism factored by daily steps and resistance/cardio training sessions.">i</span> <span>⚡</span></div>
                         <div class="metric-value" id="valTDEE">2,450</div>
                         <div class="metric-sub" id="valTargetCal">Target: 2,080 kcal</div>
                     </div>
@@ -229,7 +293,7 @@
                     <div class="gauge-cluster-grid">
                         <!-- Gauge 1: Cardio Risk -->
                         <div class="gauge-card">
-                            <h4>10-Yr Cardiovascular Risk</h4>
+                            <h4>Heart Disease Risk <span class="info-chip" title="Calibrated Balanced Logistic Regression on 319,795 CDC BRFSS adult records (ROC-AUC: 0.8170).">i</span></h4>
                             <div class="gauge-svg-container">
                                 <svg class="gauge-svg" viewBox="0 0 160 160">
                                     <circle class="gauge-bg" cx="80" cy="80" r="64"></circle>
@@ -245,7 +309,7 @@
 
                         <!-- Gauge 2: Pre-Diabetes Risk -->
                         <div class="gauge-card">
-                            <h4>Pre-Diabetes Screener</h4>
+                            <h4>Pre-Diabetes Screener <span class="info-chip" title="Supervised HistGradientBoosting model trained on 70,692 CDC balanced records (ROC-AUC: 0.8192).">i</span></h4>
                             <div class="gauge-svg-container">
                                 <svg class="gauge-svg" viewBox="0 0 160 160">
                                     <circle class="gauge-bg" cx="80" cy="80" r="64"></circle>
@@ -285,7 +349,7 @@
                                 </svg>
                                 <div class="gauge-inner-text">
                                     <span id="gaugeApneaVal" class="gauge-number">18.0%</span>
-                                    <span class="gauge-label">Clinical Cohort</span>
+                                    <span class="gauge-label">Simulated data</span>
                                 </div>
                             </div>
                             <p class="metric-sub">Airway obstruction vs behavioral insomnia.</p>
@@ -301,7 +365,7 @@
                         <h3>Precision Macronutrient Architect (Caloric Equilibrium Verified)</h3>
                         <span id="valDeficitPill" class="status-pill">-350 kcal Deficit</span>
                     </div>
-                    <div style="display:grid; grid-template-columns: 280px 1fr; gap:24px; align-items:center;">
+                    <div class="macro-donut-layout">
                         <canvas id="canvasMacroDonut" style="width:280px; height:240px;"></canvas>
                         <div style="display:flex; flex-direction:column; gap:14px;">
                             <div style="display:flex; justify-content:space-between; padding:12px; background:rgba(56,189,248,0.1); border-left:4px solid #38bdf8; border-radius:6px;">
@@ -375,7 +439,7 @@
                         <span id="caffeineStatusBadge" class="status-pill" style="color:#ef4444; border-color:#ef4444;">Sleep Disruption Risk</span>
                     </div>
                     <canvas id="canvasCaffeineCurve" class="responsive-canvas" style="height:250px;"></canvas>
-                    <div class="card-grid" style="grid-template-columns: repeat(3, 1fr); margin-top:14px;">
+                    <div class="card-grid card-grid-3" style="margin-top:14px;">
                         <div class="metric-card">
                             <div class="metric-title">Active at Bedtime</div>
                             <div class="metric-value" id="caffActiveVal">53.0 mg</div>
@@ -412,26 +476,56 @@
                 <div class="chart-box">
                     <div class="chart-header">
                         <h3>Interactive Counterfactual Habit Simulator</h3>
+                        <span class="status-pill" style="color:var(--primary-cyan); border-color:var(--primary-cyan);">Real-Time ML Recalibration</span>
                     </div>
-                    <p style="color:var(--text-secondary); margin-bottom:12px;">
-                        Simulate the immediate statistical impact of high-leverage lifestyle modifications:
+                    <p style="color:var(--text-secondary); margin-bottom:14px;">
+                        Move the interactive habit levers below to observe real-time projected risk reductions across your circadian and cardiovascular profiles:
                     </p>
-                    <div class="disclaimer-banner" style="background:rgba(56,189,248,0.12); border-left-color:var(--primary-cyan); color:#e0f2fe; margin-bottom:16px;">
-                        <strong>Intervention:</strong> Reduce bedtime phone use by 30 minutes, enable blue light filter, and add 3,000 daily steps.
-                    </div>
-                    <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+
+                    <!-- Interactive Live Sliders Grid -->
+                    <div class="card-grid card-grid-3" style="margin-bottom:18px;">
                         <div class="metric-card">
+                            <label style="font-size:0.82rem; color:var(--text-secondary); font-weight:600; display:flex; justify-content:space-between;">
+                                <span>📱 Bedtime Phone Reduction:</span>
+                                <span id="lblSimPhone" class="input-val-tag">-30 min</span>
+                            </label>
+                            <input type="range" id="simPhoneSlider" value="30" min="0" max="90" step="5" style="margin-top:10px;">
+                            <div class="metric-sub">Dopamine & blue-light screen curfew</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <label style="font-size:0.82rem; color:var(--text-secondary); font-weight:600; display:flex; justify-content:space-between;">
+                                <span>👟 Daily Steps Boost:</span>
+                                <span id="lblSimSteps" class="input-val-tag">+3,000</span>
+                            </label>
+                            <input type="range" id="simStepsSlider" value="3000" min="0" max="10000" step="500" style="margin-top:10px;">
+                            <div class="metric-sub">Vascular nitric oxide & insulin sensitivity</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <label style="font-size:0.82rem; color:var(--text-secondary); font-weight:600; display:flex; justify-content:space-between;">
+                                <span>☕ Earlier Caffeine Cutoff:</span>
+                                <span id="lblSimCaffeine" class="input-val-tag">+3.0 hrs</span>
+                            </label>
+                            <input type="range" id="simCaffSlider" value="3" min="0" max="8" step="0.5" style="margin-top:10px;">
+                            <div class="metric-sub">Clears active serum adenosine blockers</div>
+                        </div>
+                    </div>
+
+                    <!-- Projected Dynamic Outcomes -->
+                    <div class="card-grid card-grid-3">
+                        <div class="metric-card" style="border-color:rgba(16,185,129,0.3);">
                             <div class="metric-title">Sleep Latency Drop ⏱️</div>
                             <div class="metric-value" style="color:var(--accent-emerald);" id="cfLatencyDrop">-18.4 min</div>
                             <div class="metric-sub" id="cfNewLatency">Projected Onset: ~19 min</div>
                         </div>
-                        <div class="metric-card">
+                        <div class="metric-card" style="border-color:rgba(16,185,129,0.3);">
                             <div class="metric-title">Fatigue Reduction 🔋</div>
                             <div class="metric-value" style="color:var(--accent-emerald);" id="cfFatigueDrop">-2.1 pts</div>
                             <div class="metric-sub" id="cfNewFatigue">Projected Fatigue: 3.2 / 10</div>
                         </div>
-                        <div class="metric-card">
-                            <div class="metric-title">10-Yr Cardio Risk Drop ❤️</div>
+                        <div class="metric-card" style="border-color:rgba(16,185,129,0.3);">
+                            <div class="metric-title">Heart Risk Drop ❤️</div>
                             <div class="metric-value" style="color:var(--accent-emerald);" id="cfCardioDrop">-3.5%</div>
                             <div class="metric-sub" id="cfNewCardio">Projected Odds: 8.9%</div>
                         </div>
@@ -465,6 +559,14 @@
                             <div class="anxiety-header">📉 Severe 3:00 PM Energy Crash</div>
                             <div class="anxiety-explanation">The natural biological circadian temperature dip paired with high-glycemic lunch insulin clearance. Click for details.</div>
                         </div>
+                        <div class="anxiety-card" onclick="alertAnxiety('brainfog')">
+                            <div class="anxiety-header">🧠 Afternoon Brain Fog & Concentration Lapse</div>
+                            <div class="anxiety-explanation">Adenosine pressure accumulation combined with hydration deficits and blue-light REM disruption. Harmless neurochemical friction. Click for details.</div>
+                        </div>
+                        <div class="anxiety-card" onclick="alertAnxiety('coldhands')">
+                            <div class="anxiety-header">❄️ Cold Hands / Post-Coding Sluggishness</div>
+                            <div class="anxiety-explanation">Peripheral vasoconstriction triggered by hours of seated desk posture and sympathetic nervous focus, not vascular blockage. Click for details.</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -477,12 +579,24 @@
                             <div class="ai-avatar">🧠</div>
                             <div>
                                 <h3 style="font-family:var(--font-heading); font-size:1.25rem;">Dr. Qwen AI Preventive Consultation</h3>
-                                <p style="font-size:0.82rem; color:var(--text-secondary);">Grounded in your calculated mathematical & ML metrics (Running local Qwen on GPU via Ollama)</p>
+                                <p style="font-size:0.82rem; color:var(--text-secondary);" id="aiSubtitle">Grounded in verified mathematical & ML metrics (Local GPU / Zero-Crash Synthesizer)</p>
                             </div>
                         </div>
-                        <button class="btn-primary" id="btnGenerateReport">
-                            <span>✨ Generate AI Consultation Report</span>
-                        </button>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <span id="aiEngineBadge" class="status-pill" style="color:var(--accent-emerald); border-color:var(--accent-emerald);">⚡ AI Engine Ready</span>
+                            <button class="btn-primary" id="btnGenerateReport">
+                                <span>✨ Generate AI Consultation Report</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- AI Report Actions Toolbar -->
+                    <div id="aiReportToolbar" style="display:none; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px; padding:10px 16px; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:8px;">
+                        <span id="aiReportSourceBadge" style="font-size:0.82rem; color:var(--text-secondary);">Source: Verified Pre-Computed Diagnostic Payload</span>
+                        <div style="display:flex; gap:8px;">
+                            <button type="button" class="btn-ctrl" id="btnCopyReport">📋 Copy Report</button>
+                            <button type="button" class="btn-ctrl" id="btnPrintReport">🖨️ Print Consultation</button>
+                        </div>
                     </div>
 
                     <div class="ai-report-body" id="aiReportContainer">
@@ -507,11 +621,99 @@ The report will translate your multi-model risk scores, sleep latency, and sympt
                 <div class="chart-box">
                     <div class="chart-header">
                         <h3>📄 Standardized Clinical Summary Briefing</h3>
-                        <button class="btn-primary" id="btnDownloadBriefing" style="padding:8px 16px; font-size:0.85rem;">
-                            📥 Download Markdown
-                        </button>
+                        <div style="display:flex; gap:10px;">
+                            <button class="btn-primary" id="btnPrintBriefing" style="padding:8px 16px; font-size:0.85rem; background:linear-gradient(135deg, #10b981, #059669);">
+                                🖨️ Print / Save PDF
+                            </button>
+                            <button class="btn-primary" id="btnDownloadBriefing" style="padding:8px 16px; font-size:0.85rem;">
+                                📥 Download Markdown
+                            </button>
+                        </div>
                     </div>
                     <pre id="doctorBriefingPre" style="background:var(--bg-input); padding:20px; border-radius:10px; border:1px solid var(--border-subtle); color:#94a3b8; font-family:var(--font-mono); font-size:0.85rem; overflow-x:auto; white-space:pre-wrap;"></pre>
+                </div>
+            </section>
+
+            <!-- TAB 9: ML MODEL BENCHMARKS & ARCHITECTURE -->
+            <section id="tab-benchmarks" class="tab-pane">
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <h3>🔬 Supervised ML Models: Provenance, Architecture & Audited Benchmarks</h3>
+                        <span class="status-pill" style="color:var(--accent-emerald); border-color:var(--accent-emerald);">5 Trained Bundles</span>
+                    </div>
+                    <p style="color:var(--text-secondary); margin-bottom:16px;">
+                        Held-out test metrics for the 5 models (~499,000 rows in total: models 1–2 use real CDC BRFSS survey data; models 3–5 use simulated Kaggle datasets):
+                    </p>
+
+                    <div class="card-grid card-grid-2" style="gap:16px;">
+                        <!-- Card 1 -->
+                        <div class="metric-card" style="border-left:4px solid #38bdf8;">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <h4 style="color:#38bdf8; font-size:1.05rem;">1. Cardiovascular Lifestyle Risk</h4>
+                                <span class="status-pill">ROC-AUC: 0.8170</span>
+                            </div>
+                            <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">
+                                <strong>Dataset</strong>: CDC BRFSS 2020 (319,795 rows)<br>
+                                <strong>Algorithm</strong>: Balanced Logistic Regression + Standard Scaler ColumnTransformer<br>
+                                <strong>Accuracy</strong>: 76.4% | <strong>Class Balance</strong>: Weighted Inverse Frequency<br>
+                                <strong>Features</strong>: BMI, Smoking, Alcohol, PhysicalActivity, SleepTime, DiffWalking, Sex, Age
+                            </p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="metric-card" style="border-left:4px solid #10b981;">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <h4 style="color:#10b981; font-size:1.05rem;">2. Pre-Diabetes Non-Invasive Screener</h4>
+                                <span class="status-pill">ROC-AUC: 0.8192</span>
+                            </div>
+                            <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">
+                                <strong>Dataset</strong>: CDC BRFSS 50/50 Balanced Diabetes Indicators (70,692 rows)<br>
+                                <strong>Algorithm</strong>: HistGradientBoostingClassifier (max_iter=120)<br>
+                                <strong>Accuracy</strong>: 74.8% | <strong>Inference Time</strong>: &lt;2ms<br>
+                                <strong>Features</strong>: HighBP, HighChol, BMI, Smoker, PhysActivity, Fruits, Veggies, Alcohol, GenHlth, MentHlth, Age
+                            </p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="metric-card" style="border-left:4px solid #f59e0b;">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <h4 style="color:#f59e0b; font-size:1.05rem;">3. Circadian Sleep Latency & Debt</h4>
+                                <span class="status-pill">Latency RMSE: 6.84m</span>
+                            </div>
+                            <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">
+                                <strong>Dataset</strong>: Screen Time & Late-Night Phone Habits (8,500 rows)<br>
+                                <strong>Algorithm</strong>: Multi-Output HistGradientBoosting Regressor + Classifier<br>
+                                <strong>Metrics</strong>: Fatigue RMSE: 1.02 / 10 | Sleep Debt Category Accuracy: 89.2%<br>
+                                <strong>Features</strong>: Bedtime phone min, Primary app, Screen brightness %, Blue light filter, Caffeine post-5pm, Steps
+                            </p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="metric-card" style="border-left:4px solid #a855f7;">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <h4 style="color:#a855f7; font-size:1.05rem;">4. Sleep Apnea Clinical Pathology</h4>
+                                <span class="status-pill">Weighted F1: 0.8933</span>
+                            </div>
+                            <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">
+                                <strong>Dataset</strong>: Sleep Health &amp; Lifestyle — simulated Kaggle dataset (374 rows)<br>
+                                <strong>Algorithm</strong>: Balanced Random Forest (100 estimators)<br>
+                                <strong>Accuracy</strong>: 89.3% | <strong>Target Classes</strong>: None, Insomnia, Sleep Apnea<br>
+                                <strong>Features</strong>: Age, Sleep Duration, Quality, Physical Activity, Stress, HR, Systolic BP, Diastolic BP
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 Full Width -->
+                    <div class="metric-card" style="border-left:4px solid #ec4899; margin-top:16px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <h4 style="color:#ec4899; font-size:1.05rem;">5. Digital Screen Stress & Burnout Screener</h4>
+                            <span class="status-pill">Stress RMSE: 1.48 / 10</span>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">
+                            <strong>Dataset</strong>: Student Lifestyle & Digital Wellbeing (100,000 records) | <strong>Depression Classifier Accuracy</strong>: 86.4%<br>
+                            <strong>Algorithm</strong>: HistGradientBoosting Regressor & Classifier Ensemble | <strong>Features</strong>: Sleep Duration, Social Media Hours, Physical Activity, Age
+                        </p>
+                    </div>
                 </div>
             </section>
         </main>
@@ -519,7 +721,7 @@ The report will translate your multi-model risk scores, sleep latency, and sympt
 </div>
 
 <!-- Modal for "Am I Okay?" Demystifications -->
-<dialog id="anxietyModal" style="background:var(--bg-surface-elevated); border:1px solid var(--border-highlight); border-radius:var(--radius-lg); padding:28px; max-width:600px; color:#ffffff; margin:auto; box-shadow:0 25px 60px rgba(0,0,0,0.6);">
+<dialog id="anxietyModal" style="background:var(--bg-surface-elevated); border:1px solid var(--border-highlight); border-radius:var(--radius-lg); padding:28px; max-width:600px; width:92%; box-sizing:border-box; color:#ffffff; margin:auto; box-shadow:0 25px 60px rgba(0,0,0,0.6);">
     <h3 id="modalTitle" style="font-family:var(--font-heading); margin-bottom:12px; font-size:1.3rem;">Demystifying Symptom</h3>
     <div id="modalBody" style="font-size:0.92rem; line-height:1.7; color:var(--text-secondary); margin-bottom:20px;"></div>
     <div style="display:flex; justify-content:flex-end;">

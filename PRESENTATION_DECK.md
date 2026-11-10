@@ -104,7 +104,7 @@
 ### Pipeline Stages
 1. **Unified Schema Intake**: `UserHealthProfile` Pydantic model validates all biometrics, vitals, sleep, caffeine, and symptoms.
 2. **Biophysical Engine (<1ms)**: Calculates Mifflin/Katch BMR, dynamic macro partitioning, caffeine clearance curve, and scale weight bounds.
-3. **5 ML Ensembles (~4ms)**: Pre-trained scikit-learn models evaluating 10-Yr cardio risk, pre-diabetes, sleep latency, and burnout.
+3. **5 ML Ensembles (~4ms)**: Pre-trained scikit-learn models evaluating heart disease risk, pre-diabetes, sleep latency, and burnout.
 4. **Clinical Safety Triage (<0.1ms)**: Deterministic rules evaluate AHA blood pressure staging and red flags; assigns Green, Yellow, or Red Override.
 5. **Master Diagnostic Payload**: Bundles all verified metrics, percentages, and risk levels into a tamper-proof JSON payload.
 6. **Local Qwen GPU LLM (1-2s)**: Ollama feeds payload to local Qwen 0.8B on GPU for empathetic plain-English translation without hallucination.
@@ -121,7 +121,7 @@
 - [macros_nutrition.png](file:///c:/Users/salman/Desktop/p2/assets/macros_nutrition.png) *(Framed in dynamic macronutrient donut, right column top)*
 
 ### Feature Callouts
-- **Live 5-Dial SVG Risk Matrix**: Instant color-coded visualization for 10-Yr Cardio Risk (12%), Pre-Diabetes (15%), Sleep Latency, Screen Burnout, and Sleep Apnea.
+- **Live 5-Dial SVG Risk Matrix**: Instant color-coded visualization for Heart Disease Risk (12%), Pre-Diabetes (15%), Sleep Latency, Screen Burnout, and Sleep Apnea.
 - **Dynamic Macronutrient Partitioning**: Calculates exact $1.8\text{ g/kg}$ protein targets to preserve nitrogen balance, establishes an essential fat floor ($0.6\text{ g/kg}$), and allocates remaining calories to complex carbs.
 - **Real-Time Resting Vitals**: Continuous evaluation of resting BP, Heart Rate, and SpO2 with AHA/ACC staging.
 - **Sub-30ms REST API**: High-performance FastAPI server delivering near-instantaneous responses.
@@ -163,7 +163,7 @@
   - Maps cofactors to whole-food sources, synergists (Vit C + Iron), and absorption inhibitors (coffee polyphenols, tannins).
 
 ### Speaker Notes
-> "On Slide 7, we showcase two of our most powerful interactive features. On the left is our counterfactual What-If simulator. Users can adjust sliders—such as reducing bedtime screen time by 45 minutes or adding 3,000 steps—and immediately see how their projected sleep latency drops by 18 minutes and their 10-year cardio risk improves. On the right is our functional micronutrient knowledge matrix, mapping subjective symptoms like eyelid twitches or cramps directly to biochemical cofactors."
+> "On Slide 7, we showcase two of our most powerful interactive features. On the left is our counterfactual What-If simulator. Users can adjust sliders—such as reducing bedtime screen time by 45 minutes or adding 3,000 steps—and immediately see how their projected sleep latency drops by 18 minutes and their heart disease risk improves. On the right is our functional micronutrient knowledge matrix, mapping subjective symptoms like eyelid twitches or cramps directly to biochemical cofactors."
 
 ---
 
@@ -193,7 +193,7 @@
 ### Audited Performance Benchmarks Table
 | ML Ensemble Pipeline | Authentic Dataset Source | Sample Size | Supervised Algorithm | Audited Benchmark |
 | :--- | :--- | :--- | :--- | :--- |
-| **1. 10-Yr Cardiovascular Risk** | CDC BRFSS 2020 Heart Disease | 319,795 rows | Balanced Logistic Regression | **ROC-AUC: 0.817** |
+| **1. Heart Disease Risk** | CDC BRFSS 2020 Heart Disease | 319,795 rows | Balanced Logistic Regression | **ROC-AUC: 0.817** |
 | **2. Pre-Diabetes Non-Invasive Screener** | CDC BRFSS Diabetes 50/50 | 70,692 rows | HistGradientBoosting Classifier | **ROC-AUC: 0.819** |
 | **3. Circadian Latency & Debt Model** | Bedtime Screentime Cohort | 8,500 rows | Multi-Output Regressor & Clf | **RMSE: 6.84 min** |
 | **4. Clinical Sleep Apnea Triage** | Clinical Polysomnography Cohort | 374 records | Balanced Random Forest | **Weighted F1: 0.893** |

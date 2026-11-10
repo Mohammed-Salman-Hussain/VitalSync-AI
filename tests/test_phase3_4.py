@@ -117,7 +117,7 @@ def test_doctor_briefing_export(green_profile):
     assert "# CLINICAL SUMMARY BRIEFING" in briefing
     assert str(green_profile.age) in briefing
     assert str(green_profile.systolic_bp) in briefing
-    assert "Cardiovascular" in briefing
+    assert "Heart Disease Risk" in briefing
 
 
 def test_qwen_advisor_prompt_building(green_profile):

@@ -2,10 +2,10 @@
 train_models.py - Multi-Model Training & Serialization Pipeline
 
 Trains calibrated machine learning models on verified public health datasets:
-1. Cardiovascular 10-Year Lifestyle Risk (CDC BRFSS 2020 - 319,795 rows)
+1. Lifestyle Heart Disease Risk (CDC BRFSS 2020 - 319,795 rows)
 2. Pre-Diabetes Non-Invasive Screener (BRFSS 50/50 - 70,692 rows)
 3. Circadian Sleep Debt & Latency (8,500 rows)
-4. Clinical Sleep Pathology: Sleep Apnea vs Insomnia (374 clinical records)
+4. Clinical Sleep Pathology: Sleep Apnea vs Insomnia (374 rows, simulated Kaggle dataset)
 5. Digital Screen-Time Stress & Burnout (100,000 rows)
 
 Saves all serialized pipelines and metadata to models/ directory.
@@ -25,17 +25,19 @@ from sklearn.ensemble import HistGradientBoostingClassifier, HistGradientBoostin
 from sklearn.metrics import roc_auc_score, accuracy_score, mean_squared_error, f1_score
 
 
-MODELS_DIR = "models"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODELS_DIR = os.path.join(BASE_DIR, "models")
+DATASETS_DIR = os.path.join(BASE_DIR, "datasets")
 os.makedirs(MODELS_DIR, exist_ok=True)
 
 
 def train_cardiovascular_model():
     print("\n" + "="*60)
-    print("Training 1: Cardiovascular 10-Year Lifestyle Risk (CDC 319k)")
+    print("Training 1: Lifestyle Heart Disease Risk (CDC 319k)")
     print("="*60)
     t0 = time.time()
     
-    csv_path = os.path.join("datasets", "heart_2020_cleaned.csv")
+    csv_path = os.path.join(DATASETS_DIR, "heart_2020_cleaned.csv")
     df = pd.read_csv(csv_path)
     
     # Target
@@ -92,7 +94,7 @@ def train_prediabetes_model():
     print("="*60)
     t0 = time.time()
     
-    csv_path = os.path.join("datasets", "diabetes_binary_5050split_health_indicators_BRFSS2015.csv")
+    csv_path = os.path.join(DATASETS_DIR, "diabetes_binary_5050split_health_indicators_BRFSS2015.csv")
     df = pd.read_csv(csv_path)
     
     y = df["Diabetes_binary"].astype(int)
@@ -129,7 +131,7 @@ def train_circadian_sleep_models():
     print("="*60)
     t0 = time.time()
     
-    csv_path = os.path.join("datasets", "bedtime_screentime_sleep_debt.csv")
+    csv_path = os.path.join(DATASETS_DIR, "bedtime_screentime_sleep_debt.csv")
     df = pd.read_csv(csv_path)
     
     # Feature inputs
@@ -197,7 +199,7 @@ def train_sleep_pathology_model():
     print("="*60)
     t0 = time.time()
     
-    csv_path = os.path.join("datasets", "Sleep_health_and_lifestyle_dataset.csv")
+    csv_path = os.path.join(DATASETS_DIR, "Sleep_health_and_lifestyle_dataset.csv")
     df = pd.read_csv(csv_path)
     
     # Target: Sleep Disorder (None, Insomnia, Sleep Apnea)
@@ -241,7 +243,7 @@ def train_digital_burnout_model():
     print("="*60)
     t0 = time.time()
     
-    csv_path = os.path.join("datasets", "student_lifestyle_100k.csv")
+    csv_path = os.path.join(DATASETS_DIR, "student_lifestyle_100k.csv")
     df = pd.read_csv(csv_path)
     
     # Target: Stress_Level (continuous 1-10) and Depression (bool)
